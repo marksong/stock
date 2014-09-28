@@ -22,19 +22,21 @@
 				<li class="prev ${page.pageNumber eq 1 ? 'disabled' : ''}">
 					<a href="${pageUrl}/${page.pageNumber - 1}"><i class="icon-angle-left"></i></a>
 				</li>
-				<c:set var="startPage" value="1" />
-				<c:set var="endPage" value="${page.totalPage}" />
-				<c:if test="${page.pageNumber > 3}">
-					<c:set var="startPage" value="${page.pageNumber - 2}" />
+				<c:set var="startPage" value="${page.pageNumber - 2}" />
+				<c:set var="endPage" value="${page.pageNumber + 2}" />
+				<c:if test="${startPage < 0}">
+					<c:set var="startPage" value="1" />
+					<c:set var="endPage" value="${page.totalPage}" />
+					<c:if test="${endPage - startPage > 4}">
+						<c:set var="endPage" value="${startPage + 4}" />
+					</c:if>
 				</c:if>
-				<c:if test="${page.pageNumber < page.totalPage - 2 and page.totalPage > page.pageNumber + 1}">
-					<c:set var="endPage" value="${page.pageNumber + 2}" />
-				</c:if>
-				<c:if test="${page.pageNumber <= 3 and page.totalPage > 4}">
-					<c:set var="endPage" value="5" />
-				</c:if>
-				<c:if test="${page.pageNumber >= page.totalPage - 2 and page.totalPage > 3}">
-					<c:set var="startPage" value="${page.totalPage - 4}" />
+				<c:if test="${endPage > page.totalPage}">
+					<c:set var="endPage" value="${page.totalPage}" />
+					<c:set var="startPage" value="1" />
+					<c:if test="${endPage - startPage > 4}">
+						<c:set var="startPage" value="${endPage - 4}" />
+					</c:if>
 				</c:if>
 				<c:forEach begin="${startPage}" end="${endPage}" var="p">
 					<li ${p eq page.pageNumber ? 'class="active"' : ''}>
