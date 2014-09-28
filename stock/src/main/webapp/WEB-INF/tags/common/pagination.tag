@@ -16,15 +16,37 @@
 	<div class="col-xs-6">
 		<div class="dataTables_paginate paging_bootstrap">
 			<ol class="pagination">
-				<li class="prev ${page.pageNumber eq 1 ? 'disabled' : ''}">
-					<a href="${pageUrl}/1"><i class="icon-double-angle-left"></i></a>
+				<c:set var="hasPrevious" value="${not (page.pageNumber eq 1)}" />
+				<c:choose>
+					<c:when test="${hasPrevious}">
+						<c:set var="firstPageHref" value="1" />
+						<c:set var="previousPageHref" value="${page.pageNumber - 1}" />
+					</c:when>
+					<c:otherwise>
+						<c:set var="firstPageHref" value="javascript:void(0);" />
+						<c:set var="previousPageHref" value="javascript:void(0);" />
+					</c:otherwise>
+				</c:choose>
+				<c:set var="hasNext" value="${not (page.pageNumber eq page.totalPage)}" />
+				<c:choose>
+					<c:when test="${hasNext}">
+						<c:set var="nextPageHref" value="${page.pageNumber + 1}" />
+						<c:set var="lastPageHref" value="${page.totalPage}" />
+					</c:when>
+					<c:otherwise>
+						<c:set var="nextPageHref" value="javascript:void(0);" />
+						<c:set var="lastPageHref" value="javascript:void(0);" />
+					</c:otherwise>
+				</c:choose>
+				<li class="prev ${hasPrevious ? '' : 'disabled'}">
+					<a href="${firstPageHref}"><i class="icon-double-angle-left"></i></a>
 				</li>
-				<li class="prev ${page.pageNumber eq 1 ? 'disabled' : ''}">
-					<a href="${pageUrl}/${page.pageNumber - 1}"><i class="icon-angle-left"></i></a>
+				<li class="prev ${hasPrevious ? '' : 'disabled'}">
+					<a href="${previousPageHref}"><i class="icon-angle-left"></i></a>
 				</li>
 				<c:set var="startPage" value="${page.pageNumber - 2}" />
 				<c:set var="endPage" value="${page.pageNumber + 2}" />
-				<c:if test="${startPage < 0}">
+				<c:if test="${startPage < 1}">
 					<c:set var="startPage" value="1" />
 					<c:set var="endPage" value="${page.totalPage}" />
 					<c:if test="${endPage - startPage > 4}">
@@ -43,11 +65,11 @@
 						<a href="${pageUrl}/${p}">${p}</a>
 					</li>
 				</c:forEach>
-				<li class="next ${page.pageNumber eq page.totalPage ? 'disabled' : ''}">
-					<a href="${pageUrl}/${page.pageNumber + 1}"><i class="icon-angle-right"></i></a>
+				<li class="next ${hasNext ? '' : 'disabled'}">
+					<a href="${nextPageHref}"><i class="icon-angle-right"></i></a>
 				</li>
-				<li class="next ${page.pageNumber eq page.totalPage ? 'disabled' : ''}">
-  					<a href="${pageUrl}/${page.totalPage}"><i class="icon-double-angle-right"></i></a>
+				<li class="next ${hasNext ? '' : 'disabled'}">
+  					<a href="${lastPageHref}"><i class="icon-double-angle-right"></i></a>
 				</li>
  			</ol>
 		</div>
