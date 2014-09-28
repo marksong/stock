@@ -1,2 +1,4 @@
 /stock/*.log
 /stock/target/
+/stock/.classpath
+/stock/.project
