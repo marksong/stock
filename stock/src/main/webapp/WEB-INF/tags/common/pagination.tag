@@ -27,13 +27,13 @@
 				<c:if test="${page.pageNumber > 3}">
 					<c:set var="startPage" value="${page.pageNumber - 2}" />
 				</c:if>
-				<c:if test="${page.pageNumber < page.totalPage - 2}">
+				<c:if test="${page.pageNumber < page.totalPage - 2 and page.totalPage > page.pageNumber + 1}">
 					<c:set var="endPage" value="${page.pageNumber + 2}" />
 				</c:if>
-				<c:if test="${page.pageNumber <= 3}">
+				<c:if test="${page.pageNumber <= 3 and page.totalPage > 4}">
 					<c:set var="endPage" value="5" />
 				</c:if>
-				<c:if test="${page.pageNumber >= page.totalPage - 2}">
+				<c:if test="${page.pageNumber >= page.totalPage - 2 and page.totalPage > 3}">
 					<c:set var="startPage" value="${page.totalPage - 4}" />
 				</c:if>
 				<c:forEach begin="${startPage}" end="${endPage}" var="p">
