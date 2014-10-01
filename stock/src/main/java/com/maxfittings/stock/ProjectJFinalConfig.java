@@ -11,8 +11,10 @@ import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.c3p0.C3p0Plugin;
 import com.maxfittings.stock.model.User;
 import com.maxfittings.stock.web.controller.IndexController;
+import com.maxfittings.stock.web.controller.UserController;
+import com.maxfittings.stock.web.interceptor.GlobalInterceptor;
 
-public class DemoConfig extends JFinalConfig {
+public class ProjectJFinalConfig extends JFinalConfig {
 
 	@Override
 	public void configConstant(Constants me) {
@@ -23,15 +25,14 @@ public class DemoConfig extends JFinalConfig {
 	}
 
 	@Override
-	public void configHandler(Handlers arg0) {
+	public void configHandler(Handlers me) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void configInterceptor(Interceptors arg0) {
-		// TODO Auto-generated method stub
-
+	public void configInterceptor(Interceptors me) {
+		me.add(new GlobalInterceptor());
 	}
 
 	@Override
@@ -44,12 +45,13 @@ public class DemoConfig extends JFinalConfig {
 		// 配置ActiveRecord插件
 		ActiveRecordPlugin arp = new ActiveRecordPlugin(c3p0Plugin);
 		me.add(arp);
-		arp.addMapping("user", User.class); // 映射blog 表到 Blog模型
+		arp.addMapping("user", User.class);
 	}
 
 	@Override
 	public void configRoute(Routes me) {
 		me.add("/", IndexController.class);
+		me.add(ProjectConstants.BACKEND_PREFIX + ProjectConstants.USER_PREFIX, UserController.class);
 	}
 
 }

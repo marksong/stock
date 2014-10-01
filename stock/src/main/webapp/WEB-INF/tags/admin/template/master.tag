@@ -6,7 +6,7 @@
 
 
 <c:set var="ctx" value="${pageContext.request.contextPath}" />
-<c:set var="ctxStatic" value="${ctx}/static" />
+<c:set var="ctxStatic" value="${ctx}/static/admin" />
 
 <!DOCTYPE html>
 <html lang="en">

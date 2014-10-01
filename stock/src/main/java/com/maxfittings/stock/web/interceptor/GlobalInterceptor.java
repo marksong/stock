@@ -1,4 +1,4 @@
-package com.maxfittings.stock;
+package com.maxfittings.stock.web.interceptor;
 
 import com.jfinal.aop.Interceptor;
 import com.jfinal.config.Interceptors;

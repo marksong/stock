@@ -5,7 +5,8 @@
 
 
 <c:set var="ctx" value="${pageContext.request.contextPath}" />
-<c:set var="ctxStatic" value="${ctx}/static" />
+<c:set var="ctxStatic" value="${ctx}/static/admin" />
+<c:set var="pageUrl" value="${ctx}${pageUrl}" />
 
 <div class="row">
 	<div class="col-xs-6">
