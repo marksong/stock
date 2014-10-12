@@ -1,26 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
-  version="2.0">
-    
-  <description>Common JSTL functions</description>
-  <display-name>Common JSTL functions</display-name>
-  <tlib-version>1.0</tlib-version>
-  <short-name>fnc</short-name>
-  <uri>http://com.maxfittings.stock/functions</uri>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+	version="2.0">
 
-  <function>
-    <name>i18N</name>
-    <function-class>com.maxfittings.stock.common.Functions</function-class>
-    <function-signature>java.lang.String i18N(java.lang.String)</function-signature>
-  </function>
+	<description>Common JSTL functions</description>
+	<display-name>Common JSTL functions</display-name>
+	<tlib-version>1.0</tlib-version>
+	<short-name>fnc</short-name>
+	<uri>http://com.maxfittings.stock/functions</uri>
 
-  <function>
-    <name>i18NWithDefault</name>
-    <function-class>com.maxfittings.stock.common.Functions</function-class>
-    <function-signature>java.lang.String i18N(java.lang.String, java.lang.String)</function-signature>
-  </function>
-  
+	<tag>
+		<name>message</name>
+		<tag-class>com.maxfittings.stock.web.tag.Message</tag-class>
+		<body-content>empty</body-content>
+		<attribute>
+			<name>key</name>
+			<required>true</required>
+			<type>java.lang.String</type>
+		</attribute>
+	</tag>
+
 </taglib>

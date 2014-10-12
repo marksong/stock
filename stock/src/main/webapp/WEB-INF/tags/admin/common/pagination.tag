@@ -1,12 +1,21 @@
 <%@ tag body-content="empty" trimDirectiveWhitespaces="true" isELIgnored="false" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ attribute name="page" required="true" type="java.util.HashMap" %>
+<%@ attribute name="queryString" required="false" %>
 <%@ attribute name="pageUrl" required="true" %>
 
 
 <c:set var="ctx" value="${pageContext.request.contextPath}" />
 <c:set var="ctxStatic" value="${ctx}/static/admin" />
 <c:set var="pageUrl" value="${ctx}${pageUrl}" />
+<c:choose>
+	<c:when test="${not empty queryString}">
+		<c:set var="queryString" value="?${queryString}" />
+	</c:when>
+	<c:otherwise>
+		<c:set var="queryString" value="" />
+	</c:otherwise>
+</c:choose>
 
 <div class="row">
 	<div class="col-xs-6">
@@ -20,8 +29,8 @@
 				<c:set var="hasPrevious" value="${not (page.pageNumber eq 1)}" />
 				<c:choose>
 					<c:when test="${hasPrevious}">
-						<c:set var="firstPageHref" value="1" />
-						<c:set var="previousPageHref" value="${page.pageNumber - 1}" />
+						<c:set var="firstPageHref" value="1${queryString}" />
+						<c:set var="previousPageHref" value="${page.pageNumber - 1}${queryString}" />
 					</c:when>
 					<c:otherwise>
 						<c:set var="firstPageHref" value="javascript:void(0);" />
@@ -31,8 +40,8 @@
 				<c:set var="hasNext" value="${not (page.pageNumber eq page.totalPage)}" />
 				<c:choose>
 					<c:when test="${hasNext}">
-						<c:set var="nextPageHref" value="${page.pageNumber + 1}" />
-						<c:set var="lastPageHref" value="${page.totalPage}" />
+						<c:set var="nextPageHref" value="${page.pageNumber + 1}${queryString}" />
+						<c:set var="lastPageHref" value="${page.totalPage}${queryString}" />
 					</c:when>
 					<c:otherwise>
 						<c:set var="nextPageHref" value="javascript:void(0);" />
@@ -63,7 +72,7 @@
 				</c:if>
 				<c:forEach begin="${startPage}" end="${endPage}" var="p">
 					<li ${p eq page.pageNumber ? 'class="active"' : ''}>
-						<a href="${pageUrl}/${p}">${p}</a>
+						<a href="${pageUrl}/${p}${queryString}">${p}</a>
 					</li>
 				</c:forEach>
 				<li class="next ${hasNext ? '' : 'disabled'}">

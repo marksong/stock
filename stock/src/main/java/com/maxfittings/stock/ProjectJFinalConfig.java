@@ -1,5 +1,6 @@
 package com.maxfittings.stock;
 
+
 import com.jfinal.config.Constants;
 import com.jfinal.config.Handlers;
 import com.jfinal.config.Interceptors;
@@ -9,9 +10,10 @@ import com.jfinal.config.Routes;
 import com.jfinal.i18n.I18N;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.c3p0.C3p0Plugin;
-import com.maxfittings.stock.model.User;
+import com.maxfittings.stock.model.Category;
+import com.maxfittings.stock.web.controller.AdminIndexController;
+import com.maxfittings.stock.web.controller.CategoryController;
 import com.maxfittings.stock.web.controller.IndexController;
-import com.maxfittings.stock.web.controller.UserController;
 import com.maxfittings.stock.web.interceptor.GlobalInterceptor;
 
 public class ProjectJFinalConfig extends JFinalConfig {
@@ -20,7 +22,8 @@ public class ProjectJFinalConfig extends JFinalConfig {
 	public void configConstant(Constants me) {
 		loadPropertyFile("application.properties");
 		me.setDevMode(getPropertyToBoolean("devMode", false));
-		me.setDevMode(true);
+		ProjectConstants.DEFAULT_LANGUAGE = getProperty("defaultLanguage",
+				ProjectConstants.DEFAULT_LANGUAGE);
 		I18N.init("base", null, null);
 	}
 
@@ -45,13 +48,14 @@ public class ProjectJFinalConfig extends JFinalConfig {
 		// 配置ActiveRecord插件
 		ActiveRecordPlugin arp = new ActiveRecordPlugin(c3p0Plugin);
 		me.add(arp);
-		arp.addMapping("user", User.class);
+		arp.addMapping("category", Category.class);
 	}
 
 	@Override
 	public void configRoute(Routes me) {
 		me.add("/", IndexController.class);
-		me.add(ProjectConstants.BACKEND_PREFIX + ProjectConstants.USER_PREFIX, UserController.class);
+		me.add(ProjectConstants.BACKEND_PREFIX, AdminIndexController.class);
+		me.add(ProjectConstants.CATEGORY_PREFIX, CategoryController.class);
 	}
 
 }

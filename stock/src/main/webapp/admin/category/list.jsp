@@ -19,7 +19,7 @@
 		        <li class="active">Data Tables</li>
 		    </ol>
 		
-		    <h1>用户</h1>
+		    <h1>分类管理</h1>
 		    <div class="options">
 		        <div class="btn-toolbar">
 		            <div class="btn-group hidden-xs">
@@ -42,7 +42,7 @@
 		      <div class="col-md-12">
 		            <div class="panel panel-sky">
 		                <div class="panel-heading">
-		                    <h4>用户</h4>
+		                    <h4>分类</h4>
 		                    <div class="options">   
 		                        <a href="javascript:;"><i class="icon-cog"></i></a>
 		                        <a href="javascript:;"><i class="icon-wrench"></i></a>
@@ -56,33 +56,30 @@
 		                        <thead>
 		                            <tr>
 		                                <th>ID</th>
-		                                <th>公司</th>
-		                                <th>姓名</th>
-		                                <th>电话</th>
-		                                <th>地址</th>
-		                                <th>邮箱</th>
-		                                <th></th>
+		                                <th>名称（中文）</th>
+		                                <th>名称（英文）</th>
+		                                <th>排序</th>
+		                                <th>所属层级</th>
 		                                <th></th>
 		                            </tr>
 		                        </thead>
 		                        <tbody>
-		                        		<c:forEach items="${userPage.list}" var="user">
+		                        		<c:forEach items="${page.list}" var="item">
 	                        			<tr class="odd gradeX">
-		                               <td>${user.id}</td>
-		                               <td>${user.company}</td>
-		                               <td>${user.name}</td>
-	                                   <td>${user.phone}</td>
-	                                   <td>${user.address}</td>
-	                                   <td>${user.email}</td>
+		                               <td>${item.id}</td>
+		                               <td>${item.name_zh}</td>
+		                               <td>${item.name_en}</td>
+	                                   <td>${item.sort_order}</td>
+	                                   <td>${item.hierarchy_num}</td>
 	                                   <td>
-	                                   	<a href="${ctx}/admin/user/edit/${user.id}" class="btn btn-primary">编辑</a>
-	                                   	<a href="${ctx}/admin/user/delete/${user.id}" class="btn btn-danger">删除</a>
+	                                   	<a href="${ctx}/admin/category/edit/${category.id}" class="btn btn-primary">编辑</a>
+	                                   	<a href="${ctx}/admin/category/delete/${category.id}" class="btn btn-danger">删除</a>
 	                                   </td>
 	                               	</tr>
 		                        		</c:forEach>
 		                        </tbody>
 		                    </table>
-		                    <common:pagination pageUrl="${pageUrl}" page="${userPage}" />
+		                    <common:pagination pageUrl="${pageUrl}" page="${page}" queryString="${queryString}" />
 		                </div>
 		            </div>
 		        </div>
