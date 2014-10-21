@@ -26,4 +26,8 @@ public class Category extends Model<Category> {
 		return paginate(pageNumber, pageSize, "select *", sqlExceptSelect,
 				paras.toArray());
 	}
+	
+	public List<Category> findByHierachyNum(Integer hierarchyNum) {
+		return find("select * from category where hierarchy_num=?", hierarchyNum);
+	}
 }

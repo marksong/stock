@@ -616,5 +616,7 @@
 <script type='text/javascript' src='${ctxStatic}/js/application.js'></script> 
 <script type='text/javascript' src='${ctxStatic}/demo/demo.js'></script> 
 
+<jsp:invoke fragment="pageScripts" />
+
 </body>
 </html>

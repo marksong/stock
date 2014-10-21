@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.6.20)
 # Database: stock
-# Generation Time: 2014-10-11 07:00:01 +0000
+# Generation Time: 2014-10-21 15:46:18 +0000
 # ************************************************************
 
 
@@ -130,6 +130,37 @@ VALUES
 
 /*!40000 ALTER TABLE `category` ENABLE KEYS */;
 UNLOCK TABLES;
+
+
+# Dump of table product
+# ------------------------------------------------------------
+
+CREATE TABLE `product` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name_zh` varchar(500) DEFAULT NULL,
+  `name_en` varchar(500) DEFAULT NULL,
+  `product_code` varchar(500) DEFAULT NULL,
+  `material` varchar(500) DEFAULT NULL,
+  `type` varchar(500) DEFAULT NULL,
+  `outer_diameter` varchar(500) DEFAULT NULL,
+  `wall_thickness` varchar(500) DEFAULT NULL,
+  `product_standards` varchar(500) DEFAULT NULL,
+  `product_standards_fq_zh` varchar(500) DEFAULT NULL,
+  `product_standards_fq_en` varchar(500) DEFAULT NULL,
+  `type_fq_zh` varchar(500) DEFAULT NULL,
+  `type_fq_en` varchar(500) DEFAULT NULL,
+  `material_fq_zh` varchar(500) DEFAULT NULL,
+  `material_fq_en` varchar(500) DEFAULT NULL,
+  `name_fq_zh` varchar(500) DEFAULT NULL,
+  `name_fq_en` varchar(500) DEFAULT NULL,
+  `outer_diameter_fq_zh` varchar(500) DEFAULT NULL,
+  `outer_diameter_fq_en` varchar(500) DEFAULT NULL,
+  `wall_thickness_fq_zh` varchar(500) DEFAULT NULL,
+  `wall_thickness_fq_en` varchar(500) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
 
 
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;

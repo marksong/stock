@@ -11,9 +11,11 @@ import com.jfinal.i18n.I18N;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.c3p0.C3p0Plugin;
 import com.maxfittings.stock.model.Category;
+import com.maxfittings.stock.model.Product;
 import com.maxfittings.stock.web.controller.AdminIndexController;
 import com.maxfittings.stock.web.controller.CategoryController;
 import com.maxfittings.stock.web.controller.IndexController;
+import com.maxfittings.stock.web.controller.ProductController;
 import com.maxfittings.stock.web.interceptor.GlobalInterceptor;
 
 public class ProjectJFinalConfig extends JFinalConfig {
@@ -49,6 +51,7 @@ public class ProjectJFinalConfig extends JFinalConfig {
 		ActiveRecordPlugin arp = new ActiveRecordPlugin(c3p0Plugin);
 		me.add(arp);
 		arp.addMapping("category", Category.class);
+		arp.addMapping("product", Product.class);
 	}
 
 	@Override
@@ -56,6 +59,7 @@ public class ProjectJFinalConfig extends JFinalConfig {
 		me.add("/", IndexController.class);
 		me.add(ProjectConstants.BACKEND_PREFIX, AdminIndexController.class);
 		me.add(ProjectConstants.CATEGORY_PREFIX, CategoryController.class);
+		me.add(ProjectConstants.PRODUCT_PREFIX, ProductController.class);
 	}
 
 }
