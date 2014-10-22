@@ -16,7 +16,7 @@ public class AdminIndexController extends Controller {
 
 	public void loginSubmit() {
 		if (Admin.dao.login(getPara("username"), getPara("password"))) {
-			redirect(ProjectConstants.CATEGORY_PREFIX);
+			redirect(ProjectConstants.PRODUCT_PREFIX);
 			getRequest().getSession().setAttribute(
 					ProjectConstants.SESSION_ADMIN_USER, getPara("username"));
 		} else {

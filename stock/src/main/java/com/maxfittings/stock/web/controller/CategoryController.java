@@ -21,18 +21,18 @@ public class CategoryController extends Controller {
 	}
 	
 	public void createSubmit() {
-		getModel(Category.class).save();
+		getModel(Category.class, "item").save();
 		redirect(ProjectConstants.CATEGORY_PREFIX);
 	}
 
 	public void edit() {
 		setAttr("pageType", "edit");
-		setAttr("user", Category.dao.findById(getParaToInt()));
+		setAttr("item", Category.dao.findById(getParaToInt()));
 		renderJsp(ProjectConstants.CATEGORY_PREFIX + "/edit.jsp");
 	}
 	
 	public void editSubmit() {
-		getModel(Category.class).update();
+		getModel(Category.class, "item").update();
 		redirect(ProjectConstants.CATEGORY_PREFIX);
 	}
 	

@@ -13,28 +13,8 @@
 <template:master>
 	<jsp:body>
 		<div id="page-heading">
-		    <ol class="breadcrumb">
-		        <li><a href="index.html">Dashboad</a></li>
-		        <li>Advanced Tables</li>
-		        <li class="active">Data Tables</li>
-		    </ol>
 		
 		    <h1>分类管理</h1>
-		    <div class="options">
-		        <div class="btn-toolbar">
-		            <div class="btn-group hidden-xs">
-		                <a href='#' class="btn btn-muted dropdown-toggle"
-							data-toggle='dropdown'><i class="icon-cloud-download"></i><span
-							class="hidden-sm"> Export as  </span><span class="caret"></span></a>
-		                <ul class="dropdown-menu">
-		                    <li><a href="#">Text File (*.txt)</a></li>
-		                    <li><a href="#">Excel File (*.xlsx)</a></li>
-		                    <li><a href="#">PDF File (*.pdf)</a></li>
-		                </ul>
-		            </div>
-		            <a href="#" class="btn btn-muted"><i class="icon-cog"></i></a>
-		        </div>
-		    </div>
 		</div>
 		
 		<div class="container">
@@ -44,8 +24,7 @@
 		                <div class="panel-heading">
 		                    <h4>分类</h4>
 		                    <div class="options">   
-		                        <a href="javascript:;"><i class="icon-cog"></i></a>
-		                        <a href="javascript:;"><i class="icon-wrench"></i></a>
+		                        <a href="${ctx}/admin/category/create"><i class="icon-plus"></i></a>
 		                        <a href="javascript:;" class="panel-collapse"><i class="icon-chevron-down"></i></a>
 		                    </div>
 		                </div>
@@ -72,8 +51,8 @@
 	                                   <td>${item.sort_order}</td>
 	                                   <td>${item.hierarchy_num}</td>
 	                                   <td>
-	                                   	<a href="${ctx}/admin/category/edit/${category.id}" class="btn btn-primary">编辑</a>
-	                                   	<a href="${ctx}/admin/category/delete/${category.id}" class="btn btn-danger">删除</a>
+	                                   	<a href="${ctx}/admin/category/edit/${item.id}" class="btn btn-primary">编辑</a>
+	                                   	<a href="${ctx}/admin/category/delete/${item.id}" class="btn btn-danger">删除</a>
 	                                   </td>
 	                               	</tr>
 		                        		</c:forEach>

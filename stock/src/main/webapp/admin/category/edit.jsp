@@ -14,10 +14,10 @@
 	<jsp:body>
 		<c:choose>
 			<c:when test="${pageType eq 'create'}">
-				<c:set var="pageAction" value="${ctx}/admin/user/createSubmit" />
+				<c:set var="pageAction" value="${ctx}/admin/category/createSubmit" />
 			</c:when>
 			<c:when test="${pageType eq 'edit'}">
-				<c:set var="pageAction" value="${ctx}/admin/user/editSubmit" />
+				<c:set var="pageAction" value="${ctx}/admin/category/editSubmit" />
 			</c:when>
 		</c:choose>
 		<div class="container">
@@ -25,7 +25,7 @@
 				<div class="col-sm-12">
 					<div class="panel panel-primary">
 						<div class="panel-heading">
-							<h4>用户编辑</h4>
+							<h4>分类编辑</h4>
 						</div>
 						<div class="panel-body">
 							<form id="dataForm" class="form-horizontal" action="${pageAction}" method="post">
@@ -33,39 +33,33 @@
 									<div class="form-group">	
 										<label for="disabledinput" class="col-sm-3 control-label">ID</label>
 										<div class="col-sm-6">
-											<input disabled="disabled" type="text" class="form-control" value="${user.id}" />
-											<input type="hidden" name="user.id" value="${user.id}" />
+											<input disabled="disabled" type="text" class="form-control" value="${item.id}" />
+											<input type="hidden" name="item.id" value="${item.id}" />
 										</div>
 									</div>
 								</c:if>
 								<div class="form-group">
-									<label for="focusedinput" class="col-sm-3 control-label">公司</label>
+									<label for="focusedinput" class="col-sm-3 control-label">名称（中文）</label>
 									<div class="col-sm-6">
-										<input type="text" class="form-control" name="user.company" value="${user.company}" />
+										<input type="text" class="form-control" name="item.name_zh" value="${item.name_zh}" />
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="focusedinput" class="col-sm-3 control-label">姓名</label>
+									<label for="focusedinput" class="col-sm-3 control-label">名称（英文）</label>
 									<div class="col-sm-6">
-										<input type="text" class="form-control" name="user.name" value="${user.name}" />
+										<input type="text" class="form-control" name="item.name_en" value="${item.name_en}" />
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="focusedinput" class="col-sm-3 control-label">手机号</label>
+									<label for="focusedinput" class="col-sm-3 control-label">排序</label>
 									<div class="col-sm-6">
-										<input type="text" class="form-control mask" name="user.phone" value="${user.phone}" />
+										<input type="text" class="form-control" name="item.sort_order" value="${item.sort_order}" />
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="focusedinput" class="col-sm-3 control-label">邮箱</label>
+									<label for="focusedinput" class="col-sm-3 control-label">所属层级</label>
 									<div class="col-sm-6">
-										<input type="text" class="form-control" name="user.email" value="${user.email}" />
-									</div>
-								</div>
-								<div class="form-group">
-									<label for="focusedinput" class="col-sm-3 control-label">地址</label>
-									<div class="col-sm-6">
-										<input type="text" class="form-control" name="user.address" value="${user.address}" />
+										<input type="text" class="form-control" name="item.hierarchy_num" value="${item.hierarchy_num}" />
 									</div>
 								</div>
 							</form>
@@ -75,7 +69,7 @@
 								<div class="col-sm-6 col-sm-offset-3">
 									<div class="btn-toolbar">
 										<button class="btn-primary btn" onclick="$('#dataForm').submit();">提交</button>
-										<button class="btn-default btn" onclick="location.href='${ctx}/admin/user'">取消</button>
+										<button class="btn-default btn" onclick="history.back();">取消</button>
 									</div>
 								</div>
 							</div>

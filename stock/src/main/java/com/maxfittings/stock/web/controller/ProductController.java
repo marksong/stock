@@ -2,8 +2,6 @@ package com.maxfittings.stock.web.controller;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.sql.Connection;
-import java.sql.SQLException;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
@@ -83,13 +81,11 @@ public class ProductController extends Controller {
 					if (StringUtils.equals(material, "*****")) {
 						materialFQ = getFQ(materialCategories, "else");
 					} else {
-						materialFQ = getFQ(
-								materialCategories,
-								StringUtils.substring(material, 0,
-										StringUtils.indexOf(material, "/")));
+						materialFQ = getFQ(materialCategories, material, 5);
 
 					}
-					String[] nameFQ = getFQ(nameCategories, StringUtils.trim(nameZh));
+					String[] nameFQ = getFQ(nameCategories,
+							StringUtils.trim(nameZh));
 					String[] outerDiameterFQ = getFQ(outerDiameterCategories,
 							outerDiameter);
 					String[] wallThicknessFQ = getFQ(wallThicknessCategories,
@@ -137,9 +133,14 @@ public class ProductController extends Controller {
 	}
 
 	private String[] getFQ(List<Category> categories, String value) {
+		return getFQ(categories, value, StringUtils.length(value));
+	}
+
+	private String[] getFQ(List<Category> categories, String value, int length) {
 		for (Category category : categories) {
-			if (StringUtils.equals((CharSequence) category.get("name_zh"),
-					value)) {
+			if (StringUtils.equals(StringUtils.substring(
+					(String) category.get("name_zh"), 0, length), StringUtils
+					.substring(value, 0, length))) {
 				return new String[] { category.get("name_zh"),
 						category.get("name_en") };
 			}
