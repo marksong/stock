@@ -2,6 +2,8 @@ package com.maxfittings.stock.web.controller;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
@@ -42,84 +44,98 @@ public class ProductController extends Controller {
 		try {
 			UploadFile uploadFile = getFile("uploadFile");
 			if (uploadFile != null) {
-				List<Category> productStandardsCategories = Category.dao
-						.findByHierachyNum(1);
-				List<Category> typeCategories = Category.dao
-						.findByHierachyNum(2);
-				List<Category> materialCategories = Category.dao
-						.findByHierachyNum(3);
-				List<Category> nameCategories = Category.dao
-						.findByHierachyNum(4);
-				List<Category> outerDiameterCategories = Category.dao
-						.findByHierachyNum(5);
-				List<Category> wallThicknessCategories = Category.dao
-						.findByHierachyNum(6);
-				Db.update("truncate table product");
 				File file = uploadFile.getFile();
-				HSSFWorkbook workbook = new HSSFWorkbook(new FileInputStream(
-						file));
-				HSSFSheet sheet = workbook.getSheetAt(0);
-				int rowNum = sheet.getLastRowNum();
-				for (int i = 1; i < rowNum - 1; i++) {
-					HSSFRow row = sheet.getRow(i);
-					String productCode = getValue(row, PRODUCT_CODE_COLUMN);
-					String productStandards = getValue(row,
-							PRODUCT_STANDARDS_COLUMN);
-					String type = getValue(row, TYPE_COLUMN);
-					String material = getValue(row, MATERIAL_COLUMN);
-					String nameZh = getValue(row, NAME_ZH_COLUMN);
-					String outerDiameter = getValue(row, OUTER_DIAMETER_COLUMN);
-					String wallThickness = getValue(row, WALL_THICKNESS_COLUMN);
-					String nameEn = getValue(row, NAME_EN_COLUMN);
-
-					String[] productStandardsFQ = getFQ(
-							productStandardsCategories, StringUtils.substring(
-									productStandards, 0,
-									StringUtils.indexOf(productStandards, " ")));
-					String[] typeFQ = getFQ(typeCategories, type);
-					String[] materialFQ = null;
-					if (StringUtils.equals(material, "*****")) {
-						materialFQ = getFQ(materialCategories, "else");
-					} else {
-						materialFQ = getFQ(materialCategories, material, 5);
-
-					}
-					String[] nameFQ = getFQ(nameCategories,
-							StringUtils.trim(nameZh));
-					String[] outerDiameterFQ = getFQ(outerDiameterCategories,
-							outerDiameter);
-					String[] wallThicknessFQ = getFQ(wallThicknessCategories,
-							wallThickness);
-
-					Product p = new Product();
-					p.set("product_code", productCode);
-					p.set("product_standards", productStandards);
-					p.set("type", type);
-					p.set("material", material);
-					p.set("name_zh", nameZh);
-					p.set("outer_diameter", outerDiameter);
-					p.set("wall_thickness", wallThickness);
-					p.set("name_en", nameEn);
-					p.set("product_code", productCode);
-					p.set("product_standards_fq_zh", productStandardsFQ[0]);
-					p.set("product_standards_fq_en", productStandardsFQ[1]);
-					p.set("type_fq_zh", typeFQ[0]);
-					p.set("type_fq_en", typeFQ[1]);
-					p.set("material_fq_zh", materialFQ[0]);
-					p.set("material_fq_en", materialFQ[1]);
-					p.set("name_fq_zh", nameFQ[0]);
-					p.set("name_fq_en", nameFQ[1]);
-					p.set("outer_diameter_fq_zh", outerDiameterFQ[0]);
-					p.set("outer_diameter_fq_en", outerDiameterFQ[1]);
-					p.set("wall_thickness_fq_zh", wallThicknessFQ[0]);
-					p.set("wall_thickness_fq_en", wallThicknessFQ[1]);
-					p.save();
-				}
+				HSSFWorkbook workbook = new HSSFWorkbook(new FileInputStream(file));
+				uploadWorkbook(workbook);
 			}
 			redirect(ProjectConstants.PRODUCT_PREFIX + "?success=true");
 		} catch (Exception e) {
 			LOG.error("error occurs when uploading product file", e);
 			redirect(ProjectConstants.PRODUCT_PREFIX + "?success=false");
+		}
+	}
+
+	private void uploadWorkbook(HSSFWorkbook workbook) throws IOException,
+			FileNotFoundException {
+		List<Category> productStandardsCategories = Category.dao
+				.findByHierachyNum(1);
+		List<Category> typeCategories = Category.dao.findByHierachyNum(2);
+		List<Category> materialCategories = Category.dao.findByHierachyNum(3);
+		List<Category> nameCategories = Category.dao.findByHierachyNum(4);
+		List<Category> outerDiameterCategories = Category.dao
+				.findByHierachyNum(5);
+		List<Category> wallThicknessCategories = Category.dao
+				.findByHierachyNum(6);
+		Db.update("truncate table product");
+		
+		int sheetNum = workbook.getNumberOfSheets();
+		for (int sn = 0; sn < sheetNum; sn++) {
+			HSSFSheet sheet = workbook.getSheetAt(sn);
+			uploadSheet(productStandardsCategories, typeCategories,
+					materialCategories, nameCategories,
+					outerDiameterCategories, wallThicknessCategories, sheet);
+		}
+
+	}
+
+	private void uploadSheet(List<Category> productStandardsCategories,
+			List<Category> typeCategories, List<Category> materialCategories,
+			List<Category> nameCategories,
+			List<Category> outerDiameterCategories,
+			List<Category> wallThicknessCategories, HSSFSheet sheet) {
+		int rowNum = sheet.getLastRowNum();
+		for (int i = 1; i < rowNum - 1; i++) {
+			HSSFRow row = sheet.getRow(i);
+			String productCode = getValue(row, PRODUCT_CODE_COLUMN);
+			String productStandards = getValue(row, PRODUCT_STANDARDS_COLUMN);
+			String type = getValue(row, TYPE_COLUMN);
+			String material = getValue(row, MATERIAL_COLUMN);
+			String nameZh = getValue(row, NAME_ZH_COLUMN);
+			String outerDiameter = getValue(row, OUTER_DIAMETER_COLUMN);
+			String wallThickness = getValue(row, WALL_THICKNESS_COLUMN);
+			String nameEn = getValue(row, NAME_EN_COLUMN);
+
+			String[] productStandardsFQ = getFQ(
+					productStandardsCategories,
+					StringUtils.substring(productStandards, 0,
+							StringUtils.indexOf(productStandards, " ")));
+			String[] typeFQ = getFQ(typeCategories, type);
+			String[] materialFQ = null;
+			if (StringUtils.equals(material, "*****")) {
+				materialFQ = getFQ(materialCategories, "else");
+			} else {
+				materialFQ = getFQ(materialCategories, material, 5);
+
+			}
+			String[] nameFQ = getFQ(nameCategories, StringUtils.trim(nameZh));
+			String[] outerDiameterFQ = getFQ(outerDiameterCategories,
+					outerDiameter);
+			String[] wallThicknessFQ = getFQ(wallThicknessCategories,
+					wallThickness);
+
+			Product p = new Product();
+			p.set("product_code", productCode);
+			p.set("product_standards", productStandards);
+			p.set("type", type);
+			p.set("material", material);
+			p.set("name_zh", nameZh);
+			p.set("outer_diameter", outerDiameter);
+			p.set("wall_thickness", wallThickness);
+			p.set("name_en", nameEn);
+			p.set("product_code", productCode);
+			p.set("product_standards_fq_zh", productStandardsFQ[0]);
+			p.set("product_standards_fq_en", productStandardsFQ[1]);
+			p.set("type_fq_zh", typeFQ[0]);
+			p.set("type_fq_en", typeFQ[1]);
+			p.set("material_fq_zh", materialFQ[0]);
+			p.set("material_fq_en", materialFQ[1]);
+			p.set("name_fq_zh", nameFQ[0]);
+			p.set("name_fq_en", nameFQ[1]);
+			p.set("outer_diameter_fq_zh", outerDiameterFQ[0]);
+			p.set("outer_diameter_fq_en", outerDiameterFQ[1]);
+			p.set("wall_thickness_fq_zh", wallThicknessFQ[0]);
+			p.set("wall_thickness_fq_en", wallThicknessFQ[1]);
+			p.save();
 		}
 	}
 
