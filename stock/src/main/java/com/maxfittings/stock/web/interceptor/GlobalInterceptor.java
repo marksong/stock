@@ -9,6 +9,7 @@ import com.jfinal.core.ActionInvocation;
 import com.jfinal.core.Const;
 import com.jfinal.core.Controller;
 import com.maxfittings.stock.ProjectConstants;
+import com.maxfittings.stock.common.CommonUtils;
 
 public class GlobalInterceptor implements Interceptor {
 
@@ -28,6 +29,7 @@ public class GlobalInterceptor implements Interceptor {
 		
 		//set request query string for pagination
 		c.setAttr(ProjectConstants.QUERY_STRING, request.getQueryString());
+		c.setAttr(ProjectConstants.LANGUAGE, CommonUtils.getLanguage(request));
 	}
 
 }

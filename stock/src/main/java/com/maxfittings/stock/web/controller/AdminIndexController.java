@@ -7,7 +7,7 @@ import com.maxfittings.stock.model.Admin;
 public class AdminIndexController extends Controller {
 
 	public void index() {
-		renderJsp(ProjectConstants.BACKEND_PREFIX + "/index.jsp");
+		redirect(ProjectConstants.PRODUCT_PREFIX);
 	}
 
 	public void login() {

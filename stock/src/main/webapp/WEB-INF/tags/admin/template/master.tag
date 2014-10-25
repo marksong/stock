@@ -130,6 +130,7 @@
             <ul class="acc-menu" id="sidebar">
                 <li class="divider"></li>
                 <li><a href="${ctx}/admin/product"><span>产品管理</span></a></li>
+                <li><a href="${ctx}/admin/stock"><span>库存管理</span></a></li>
                 <li><a href="${ctx}/admin/category"><span>分类管理</span></a></li>
             </ul>
             <!-- END SIDEBAR MENU -->
