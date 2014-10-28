@@ -11,7 +11,6 @@ import com.jfinal.plugin.activerecord.Page;
 import com.maxfittings.stock.common.CommonUtils;
 import com.maxfittings.stock.model.Category;
 import com.maxfittings.stock.model.Product;
-import com.sun.xml.internal.ws.util.StringUtils;
 
 public class FrontController extends Controller {
 
@@ -42,7 +41,7 @@ public class FrontController extends Controller {
 		String language = CommonUtils.getLanguage(getRequest());
 		// 取出所有上级条件
 		String idsStr = getPara("ids");
-		System.out.println("fuck----------------" + idsStr);
+		System.out.println("well----------------" + idsStr);
 		List<Integer> idsList = new ArrayList<Integer>();
 		List<Category> cates = new ArrayList<Category>();
 		int maxLevel = 0;
