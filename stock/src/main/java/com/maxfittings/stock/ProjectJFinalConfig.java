@@ -15,6 +15,7 @@ import com.maxfittings.stock.model.Product;
 import com.maxfittings.stock.model.Stock;
 import com.maxfittings.stock.web.controller.AdminIndexController;
 import com.maxfittings.stock.web.controller.CategoryController;
+import com.maxfittings.stock.web.controller.FrontController;
 import com.maxfittings.stock.web.controller.IndexController;
 import com.maxfittings.stock.web.controller.ProductController;
 import com.maxfittings.stock.web.controller.StockController;
@@ -60,6 +61,7 @@ public class ProjectJFinalConfig extends JFinalConfig {
 	@Override
 	public void configRoute(Routes me) {
 		me.add("/", IndexController.class);
+		me.add("/front", FrontController.class);
 		me.add(ProjectConstants.BACKEND_PREFIX, AdminIndexController.class);
 		me.add(ProjectConstants.CATEGORY_PREFIX, CategoryController.class);
 		me.add(ProjectConstants.PRODUCT_PREFIX, ProductController.class);
