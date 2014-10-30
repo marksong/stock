@@ -14,21 +14,21 @@
 <title>桑不起</title>
 
 
-<link rel="stylesheet" type="text/css" href="../static/front/css/slim-081711.css" />
-<link rel="stylesheet" type="text/css" href="../static/front/css/jquery-ui-1.10.0.custom.css" />
-<link rel="stylesheet" type="text/css" href="../static/front/css/jquery.fancybox-1.3.4.css"/>
-<link rel="stylesheet" type="text/css" href="../static/front/css/960_24_col.css"/>
-<link rel="stylesheet" type="text/css" href="../static/front/css/stylesheet.css"/>
-<link rel="stylesheet" type="text/css" media="screen" href="../static/front/css/default.css"/>
-<link rel="stylesheet" type="text/css" media="screen" href="../static/front/css/nivo-slider.css"/>
-<link rel="stylesheet" type="text/css" href="../static/front/css/hint.css"/>
+<link rel="stylesheet" type="text/css" href="static/front/css/slim-081711.css" />
+<link rel="stylesheet" type="text/css" href="static/front/css/jquery-ui-1.10.0.custom.css" />
+<link rel="stylesheet" type="text/css" href="static/front/css/jquery.fancybox-1.3.4.css"/>
+<link rel="stylesheet" type="text/css" href="static/front/css/960_24_col.css"/>
+<link rel="stylesheet" type="text/css" href="static/front/css/stylesheet.css"/>
+<link rel="stylesheet" type="text/css" media="screen" href="static/front/css/default.css"/>
+<link rel="stylesheet" type="text/css" media="screen" href="static/front/css/nivo-slider.css"/>
+<link rel="stylesheet" type="text/css" href="static/front/css/hint.css"/>
 
 
 
-<script type="text/javascript" src="../static/front/js/jquery-1.10.1.min.js"></script>
-<link href="../static/front/tree3/themes/default/style.min.css" rel="stylesheet" />
-<script src="../static/front/tree3/jstree.js"></script>
-<script type="text/javascript" src="../static/front/js/front.js"></script>
+<script type="text/javascript" src="static/front/js/jquery-1.10.1.min.js"></script>
+<link href="static/front/tree3/themes/default/style.min.css" rel="stylesheet" />
+<script src="static/front/tree3/jstree.js"></script>
+<script type="text/javascript" src="static/front/js/front.js"></script>
 
 <link rel="shortcut icon" href="http://www.stockservices.co.uk/images/favicon.ico/" />
 <link rel="icon" href="http://www.stockservices.co.uk/images/favicon.ico/" type="image/x-icon"/>
@@ -46,34 +46,74 @@
 <link rel="apple-touch-icon" sizes="114x114" href="http://www.stockservices.co.uk/touch-icon-iphone-retina.png"/>
 <link rel="apple-touch-icon" sizes="144x144" href="http://www.stockservices.co.uk/touch-icon-ipad-retina.png"/>
 <style type="text/css">
-.clearfix:before, .clearfix:after {
-	display: table;
-	content: " ";
-	clear: both;
-}
-
-.item{
-	width:100px;
-	display:block;
-	float:left;
-	margin:5px 10px;
-	background-color: gray;
-	cursor: pointer;
-}
-.active{
-	color:red;
-	background-color: green;
-}
-#productTable  td,th{
-	border:1px solid gray;
-}
-#productTable{
-	margin-top:10px;
-	border:1px solid gray;
-}
-.breadcrumb_null{
-	border:green 1px dashed;
-}
+	.clearfix:before, .clearfix:after {
+		display: table;
+		content: " ";
+		clear: both;
+	}
+	
+	.item{
+		width:100px;
+		display:block;
+		float:left;
+		margin:5px 5px;
+		padding:2px;
+		cursor: pointer;
+	}
+	.item:HOVER{
+		color: red;
+	}	
+	.active{
+		color:blue;
+	}
+	#productTable thead{
+		background-color: rgb(238, 238, 238);
+	}
+	.page{
+		padding:5px;
+		background-color: rgb(238, 238, 238);
+	}
+	.page .next:HOVER,.pre:HOVER{
+		cursor: pointer;
+		background-color: #85EFDF;
+	}
+	
+	.page .disable{
+		color: gray;
+		background-color: none;
+	}
+	.page .disable:HOVER{
+		cursor: default;
+		color: gray;
+		background-color: none;
+	}
+	#productTable{
+		margin-top:10px;
+	}
+	#productTable td{
+		font-size: 13px;
+	}
+	#productTable .odd td{
+		background-color: #f0fdfa;
+	}
+	.breadcrumb_null_1{
+		border:gray 1px solid;
+	}
+	.breadcrumb_null_2{
+		border:gray 1px solid;
+		border-top:none;
+	}
+	.breadcrumb_null_3{
+		border:gray 1px solid;
+		border-top:none;
+	}
+	.contentContainer table{
+		width: 100%;
+	}
+	.margin-padding{
+		margin:2px;
+		padding:2px;
+	}
 </style>
 </head>
 <body>
@@ -83,7 +123,7 @@
 
 		<div id="header" class="grid_24">
 			<div id="storeLogo">
-				<img src="../static/front/img/ss_header_950x230.png" alt="First Choice for Stainless Steel Fittings and Flanges" />
+				<img src="static/front/img/ss_header_950x230.png" alt="First Choice for Stainless Steel Fittings and Flanges" />
 			</div>
 
 			<div id="headerBackground">
@@ -104,10 +144,10 @@
 					<li class="imglink"><a
 						href="https://plus.google.com/102831278091066439226/about"
 						target="_blank">
-						<img src="../static/front/img/google.png" alt="Google+ Logo" title="Stock Services Google+ Profile"/></a></li>
+						<img src="static/front/img/google.png" alt="Google+ Logo" title="Stock Services Google+ Profile"/></a></li>
 					<li class="imglink">
 						<a href="http://www.linkedin.com/company/stock-services" target="_blank">
-							<img src="../static/front/img/linkedin.png" alt="LinkedIn Logo" title="Stock Services LinkedIn Profile"/>
+							<img src="static/front/img/linkedin.png" alt="LinkedIn Logo" title="Stock Services LinkedIn Profile"/>
 						</a>
 					</li>
 				</ul>
@@ -135,25 +175,23 @@
 		</div>
 
 
-		<div id="bodyContent" class="grid_18 push_6">
-			<div style="border: black 1px solid;">
-				<div class="breadcrumb_null" id="level4">
+		<div id="bodyContent" class="grid_18 push_6" style="font-size: 13px;">
+			<div>
+				<div class="breadcrumb_null_1" id="level4">
 				</div>
-				<div class="breadcrumb_null" id="level5">
+				<div class="breadcrumb_null_2" id="level5">
 				</div>
-				<div class="breadcrumb_null" id="level6">
-				</div>			
+				<div class="breadcrumb_null_3" id="level6">
+				</div>	
 			</div>
 			<div class="contentContainer" id="container">
 			</div>
-
-
 		</div>
 		<!-- bodyContent //-->
 
 
 		<div id="columnLeft" class="grid_6 pull_18">
-			<div id="leftTree" style="min-height:300px;border: black 1px solid;">
+			<div id="leftTree" style="border-right: black 1px solid;">
 			</div>
 		</div>
 		<br/>

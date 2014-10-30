@@ -170,7 +170,19 @@ public class FrontController extends Controller {
 		List<Category> level4Cates = new ArrayList<Category>();
 		List<Category> level5Cates = new ArrayList<Category>();
 		List<Category> level6Cates = new ArrayList<Category>();
-		if (level4Cate == null && level5Cate == null && level6Cate == null) {
+		if(level4Cate != null){
+			String column_name4 = CATEGORY_MAP.get(level4Cate.getInt("hierarchy_num")) + language;
+			sb.append("and " + column_name4 + "= '" + level4Cate.getStr("name_" + language) + "' ");			
+		}
+		if(level5Cate != null){
+			String column_name5 = CATEGORY_MAP.get(level5Cate.getInt("hierarchy_num")) + language;
+			sb.append("and " + column_name5 + "= '" + level5Cate.getStr("name_" + language) + "' ");		
+		}
+		if(level6Cate != null){
+			String column_name6 = CATEGORY_MAP.get(level6Cate.getInt("hierarchy_num")) + language;
+			sb.append("and " + column_name6 + "= '" + level6Cate.getStr("name_" + language) + "' ");		
+		}
+		if(level4Cate == null){
 			// 条件4
 			level4Cates = Category.dao.findByHierachyNum(4);
 			ListIterator<Category> iterator4 = level4Cates.listIterator();
@@ -182,9 +194,10 @@ public class FrontController extends Controller {
 				int number = Product.dao.count(sql, paras.toArray(new String[0])).intValue();
 				if (number == 0) {
 					iterator4.remove();
-					continue;
 				}
-			}
+			}			
+		}
+		if(level5Cate == null){
 			// 条件5
 			level5Cates = Category.dao.findByHierachyNum(5);
 			ListIterator<Category> iterator5 = level5Cates.listIterator();
@@ -196,9 +209,10 @@ public class FrontController extends Controller {
 				int number5 = Product.dao.count(sql5, paras.toArray(new String[0])).intValue();
 				if (number5 == 0) {
 					iterator5.remove();
-					continue;
 				}
-			}
+			}			
+		}
+		if(level6Cate == null){
 			// 条件6
 			level6Cates = Category.dao.findByHierachyNum(6);
 			ListIterator<Category> iterator6 = level6Cates.listIterator();
@@ -210,60 +224,8 @@ public class FrontController extends Controller {
 				System.out.println("sql--6--:" + sql6);
 				if (number6 == 0) {
 					iterator6.remove();
-					continue;
 				}
-			}
-		} else if (level4Cate != null && level5Cate == null && level6Cate == null) {
-			String column_name = CATEGORY_MAP.get(level4Cate.getInt("hierarchy_num")) + language;
-			String sql = sb.toString() + "and " + column_name + "= '" + level4Cate.getStr("name_" + language) + "' ";
-			// 条件5
-			level5Cates = Category.dao.findByHierachyNum(5);
-			ListIterator<Category> iterator5 = level5Cates.listIterator();
-			while (iterator5.hasNext()) {
-				Category cate5 = iterator5.next();
-				String column_name5 = CATEGORY_MAP.get(cate5.getInt("hierarchy_num")) + language;
-				String sql5 = sql + "and " + column_name5 + "= '" + cate5.getStr("name_" + language) + "' ";
-				System.out.println("sql--5--:" + sql5);
-				int number5 = Product.dao.count(sql5, paras.toArray(new String[0])).intValue();
-				if (number5 == 0) {
-					iterator5.remove();
-					continue;
-				}
-				// 条件6
-				level6Cates = Category.dao.findByHierachyNum(6);
-				ListIterator<Category> iterator6 = level6Cates.listIterator();
-				while (iterator6.hasNext()) {
-					Category cate6 = iterator6.next();
-					String column_name6 = CATEGORY_MAP.get(cate6.getInt("hierarchy_num")) + language;
-					String sql6 = sql5 + "and " + column_name6 + "= '" + cate6.getStr("name_" + language) + "' ";
-					int number6 = Product.dao.count(sql6, paras.toArray(new String[0])).intValue();
-					System.out.println("sql--6--:" + sql6);
-					if (number6 == 0) {
-						iterator6.remove();
-						continue;
-					}
-				}
-			}
-
-		} else if (level4Cate != null && level5Cate != null && level6Cate == null) {
-			String column_name = CATEGORY_MAP.get(level4Cate.getInt("hierarchy_num")) + language;
-			String sql = sb.toString() + "and " + column_name + "= '" + level4Cate.getStr("name_" + language) + "' ";
-			String column_name5 = CATEGORY_MAP.get(level5Cate.getInt("hierarchy_num")) + language;
-			String sql5 = sql + "and " + column_name5 + "= '" + level5Cate.getStr("name_" + language) + "' ";
-			// 条件6
-			level6Cates = Category.dao.findByHierachyNum(6);
-			ListIterator<Category> iterator6 = level6Cates.listIterator();
-			while (iterator6.hasNext()) {
-				Category cate6 = iterator6.next();
-				String column_name6 = CATEGORY_MAP.get(cate6.getInt("hierarchy_num")) + language;
-				String sql6 = sql5 + "and " + column_name6 + "= '" + cate6.getStr("name_" + language) + "' ";
-				int number6 = Product.dao.count(sql6, paras.toArray(new String[0])).intValue();
-				System.out.println("sql--6--:" + sql6);
-				if (number6 == 0) {
-					iterator6.remove();
-					continue;
-				}
-			}
+			}			
 		}
 		// 四五六条件数据组装
 		Map<String, Object> resultMap = new HashMap<String, Object>();

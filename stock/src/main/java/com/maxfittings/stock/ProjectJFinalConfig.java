@@ -60,8 +60,7 @@ public class ProjectJFinalConfig extends JFinalConfig {
 
 	@Override
 	public void configRoute(Routes me) {
-		me.add("/", IndexController.class);
-		me.add("/front", FrontController.class);
+		me.add("/", FrontController.class);
 		me.add(ProjectConstants.BACKEND_PREFIX, AdminIndexController.class);
 		me.add(ProjectConstants.CATEGORY_PREFIX, CategoryController.class);
 		me.add(ProjectConstants.PRODUCT_PREFIX, ProductController.class);

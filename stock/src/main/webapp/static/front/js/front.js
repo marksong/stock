@@ -68,6 +68,10 @@ $(function(){
 							}
 						}
 						//横向条件
+//						if(cond.level5)
+//							ids += (cond.level5+',');
+//						if(cond.level6)
+//							ids += (cond.level6+',');
 						var id = eval($(this).attr('itemId'));
 						ids += (id+',');
 						ids = ids.substring(0, ids.length-1);
@@ -111,7 +115,7 @@ $(function(){
 				}
 				$('#level5').append('<span class="clearfix"></span>');			
 			}
-			if (data.level5.length > 0) {
+			if (data.level6.length > 0) {
 				$('#level6').empty();
 				for(var i = 0 ; i < data.level6.length ; i++){
 					$('<span class="item" itemId="'+ data.level6[i].id +'">'+ data.level6[i].text +'</span>').on('click', function(){
@@ -147,24 +151,26 @@ $(function(){
 	//加载产品列表
 	var loadProducts = function(data){
 		pageNo = data.page.pageNumber;
-		totalPage = data.page.totalPage;
+		if(data.page.totalPage == 0){
+			totalPage = 1;
+		} else {
+			totalPage = data.page.totalPage;
+		}
 		$('#container').empty();
 		var lang = data.language;
 		var html = '<table id="productTable">';
 		//创建表头
 		html += ('<thead>'+
-			'<th>id</th>'+
-			'<th>名称</th>'+
-			'<th>材质</th>'+
-			'<th>类型</th>'+
-			'<th>外径</th>'+
-			'<th>皮管厚度</th>'+
+			'<th width=40%>名称</th>'+
+			'<th width=25%>材质</th>'+
+			'<th width=10%>类型</th>'+
+			'<th width=10%>外径</th>'+
+			'<th width=15%>皮管厚度</th>'+
 		'</thead><tbody>');
 		//创建行记录
 		var list = data.page.list;
 		for(var i = 0 ; i < list.length ; i++){
-			html += ('<tr>'+
-				'<td>'+ list[i].id +'</td>'+
+			html += ('<tr '+ (i%2 != 0 ? '': 'class=odd')  +'>'+
 				'<td>'+ list[i]['name_'+lang] +'</td>'+
 				'<td>'+ list[i].material +'</td>'+
 				'<td>'+ list[i].type +'</td>'+
@@ -174,26 +180,27 @@ $(function(){
 		}
 		html += '</tbody></table>';
 		$(html).appendTo('#container');
-		var $pagination = $('<div style="width:100%;float:none"></div>');
-		$('<span style="width:50%;float:left">共'+ 
+		var $pagination = $('<div class="page"></div>');
+		$('<span style="width:50%;float:left;" class="margin-padding">共'+ 
 				data.page.totalRow +'条结果,'+ 
-				data.page.totalPage + '页,每页'+
+				totalPage + '页,每页'+
 				data.page.pageSize +'条记录,当前第'+ 
 		 data.page.pageNumber +'页</span>').appendTo($pagination);
 		 //分页项
-		 $('<span style="float:right;cursor:pointer">下一页</span>').on('click', function(){
+		 $('<span style="float:right;" class="margin-padding '+ (pageNo == totalPage ? 'disable':'next') +'">下一页</span>').on('click', function(){
 		 	jumpToPage(pageNo+1);
 		 }).appendTo($pagination);
-		 $('<span style="float:right;cursor:pointer">上一页</span>').on('click', function(){
+		 $('<span style="float:right;" class="margin-padding '+ (pageNo == 1 ? 'disable':'pre') +'">上一页</span>').on('click', function(){
 		 	jumpToPage(pageNo-1);
 		 }).appendTo($pagination);
+		 $pagination.append('<span class="clearfix"></span>');
 		 $($pagination).appendTo('#container');
 	};
 	var $tree = $('#leftTree');
 	var nodes = new Array();
 	// 树
 	$tree.jstree({
-		plugins		:	['sort', 'types', 'unique'],
+		plugins		:	['sort', 'types', 'wholerow'],
 		core		:	{
 			multiple		:	false,
 			data			:	{
@@ -223,7 +230,11 @@ $(function(){
 			var a = $tree.jstree('get_node', id1, false);
 			var b = $tree.jstree('get_node', id2, false);
 			return a.text > b.text ? 1 : -1;
-		}
+		},
+		types 		: {
+			'default' : { 'icon' : 'folder' },
+			'file' : { 'valid_children' : [], 'icon' : 'file' }
+		},
 	}).on('select_node.jstree', function(e, data){
 		$tree.jstree('open_node',data.node,function(){
 			//父节点拼接
