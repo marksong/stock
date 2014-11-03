@@ -11,7 +11,7 @@
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 
-<title>桑不起</title>
+<title>库存</title>
 
 
 <link rel="stylesheet" type="text/css" href="static/front/css/slim-081711.css" />
