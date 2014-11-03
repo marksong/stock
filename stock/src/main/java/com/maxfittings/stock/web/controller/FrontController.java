@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
+import java.util.Random;
 
 import com.jfinal.core.Controller;
 import com.jfinal.plugin.activerecord.Page;
@@ -83,9 +84,10 @@ public class FrontController extends Controller {
 			}
 		}
 		List<Map<String, Object>> ret = new ArrayList<Map<String, Object>>();
+		Random ran = new Random();
 		for (Category cate : nextCates) {
 			Map<String, Object> map = new HashMap<String, Object>();
-			map.put("id", cate.getLong("id"));
+			map.put("id", ran.nextInt());
 			map.put("text", cate.getStr("name_" + language));
 			if (getParaToInt("condition") == 1) {
 				map.put("children", cate.getInt("hierarchy_num") < 3);
@@ -93,7 +95,7 @@ public class FrontController extends Controller {
 				map.put("children", cate.getInt("hierarchy_num") < 6);
 			}
 			// 自定义的属性
-			map.put("level", cate.getInt("hierarchy_num"));
+			map.put("data", cate.getLong("id"));
 			ret.add(map);
 		}
 		renderJson(ret);

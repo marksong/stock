@@ -200,7 +200,7 @@ $(function(){
 	var nodes = new Array();
 	// 树
 	$tree.jstree({
-		plugins		:	['sort', 'types', 'wholerow'],
+		plugins		:	['sort', 'types', 'wholerow','state'],
 		core		:	{
 			multiple		:	false,
 			data			:	{
@@ -210,12 +210,12 @@ $(function(){
 					var idsArr = new Array();
 					for(var i = 0 ; i < node.parents.length ; i++){
 						if(node.parents[i] != '#')
-							idsArr.push(node.parents[i]);
+							idsArr.push($tree.jstree('get_node',node.parents[i]).data);
 					}
 					idsArr = unique(idsArr);
 					//本节点
 					if(node.id != '#'){
-						idsArr.push(node.id);
+						idsArr.push(node.data);
 					}
 					var str = '';
 					for(var i = 0 ; i < idsArr.length ; i++){
@@ -225,6 +225,10 @@ $(function(){
 					return {ids: str,condition:1};
 				}
 			}
+		},
+		check_callback : true,
+		themes : {
+			responsive : false
 		},
 		sort		:	function(id1, id2) {
 			var a = $tree.jstree('get_node', id1, false);
@@ -243,13 +247,14 @@ $(function(){
 			var idsArr = new Array();
 			for(var i = 0 ; i < parents.length ; i++){
 				if(parents[i] != '#'){
-					idsArr.push(parents[i]);
-					ids += (parents[i] + ',');				
+					var id = $tree.jstree('get_node',parents[i]).data;
+					idsArr.push(id);
+					ids += (id + ',');				
 				}
 			}
 			//本节点
-			ids += (data.node.id + ',');
-			idsArr.push(data.node.id);
+			ids += (data.node.data + ',');
+			idsArr.push(data.node.data);
 			GenericIds = unique(idsArr);
 			ids = ids.substring(0, ids.length-1);
 			//判断第一第二层，，，，加载
