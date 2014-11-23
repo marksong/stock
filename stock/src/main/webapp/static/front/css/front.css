@@ -1,0 +1,151 @@
+.clearfix:before, .clearfix:after {
+    display: table;
+    content: " ";
+    clear: both;
+}
+
+.item {
+    width: 100px;
+    display: block;
+    float: left;
+    margin: 5px 5px;
+    padding: 2px;
+    cursor: pointer;
+}
+
+.item:HOVER {
+    color: red;
+}
+
+.active {
+    color: blue;
+}
+
+.page {
+    padding: 5px;
+    background-color: rgb(238, 238, 238);
+}
+
+.page .next:HOVER, .pre:HOVER {
+    cursor: pointer;
+    background-color: #85EFDF;
+}
+
+.page .disable {
+    color: gray;
+    background-color: none;
+}
+
+.page .disable:HOVER {
+    cursor: default;
+    color: gray;
+    background-color: none;
+}
+
+
+#productTable thead {
+    background-color: rgb(238, 238, 238);
+}
+#productTable {
+    margin-top: 10px;
+}
+#productTable tbody tr:hover{
+    background-color:#adfcd9;
+}
+
+#productTable td {
+    font-size: 13px;
+}
+
+#productTable .odd td {
+    background-color: #f0fdfa;
+}
+
+#productTable tbody .odd:hover {
+    background-color:#adfcd9;
+}
+
+.cartTable thead{
+	background-color: rgb(238, 238, 238)	
+}
+.cartTable tbody td{
+	text-align:center;	
+}
+.cartTable .odd td {
+    background-color: #f0fdfa;
+}
+
+.breadcrumb_null_1 {
+    border: gray 1px solid;
+}
+
+.breadcrumb_null_2 {
+    border: gray 1px solid;
+    border-top: none;
+}
+
+.breadcrumb_null_3 {
+    border: gray 1px solid;
+    border-top: none;
+}
+
+.contentContainer table {
+    width: 100%;
+}
+
+.margin-padding {
+    margin: 2px;
+    padding: 2px;
+}
+
+.cart {
+    position: fixed;
+    bottom: 50px;
+    width: 100px;
+    height: 150px;
+    z-index: 1000;
+	color:#e61f09;
+    background:url(../img/cart.png) no-repeat 0% 30%;
+	background-size:100px auto;
+}
+.bottom-div{
+	position:relative;
+	top:62%;
+	left:0;
+	height:15%;
+	width:100%;
+}
+.cartBtn{
+	width:45px;
+	height:100%;
+}
+.clear{
+	float:left;
+}
+.viewCart{
+	float:right;
+}
+.add{
+	display: block;
+	margin:0 auto;
+	background-color:#acfe01;
+}
+.added{
+	display: block;
+	margin:0 auto;
+	background-color:#7bb9c1;
+}
+.sendMailBtn{
+	float:right;
+	margin:5px 5px;
+}
+.returnBackBtn{
+	float:right;
+	margin:5px 5px;
+}
+.title{
+	float:left;
+	height:100%;
+	width:100px;
+	margin:10px 0
+}

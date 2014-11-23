@@ -22,10 +22,12 @@
 <link rel="stylesheet" type="text/css" media="screen" href="static/front/css/default.css"/>
 <link rel="stylesheet" type="text/css" media="screen" href="static/front/css/nivo-slider.css"/>
 <link rel="stylesheet" type="text/css" href="static/front/css/hint.css"/>
+<link rel="stylesheet" type="text/css" href="static/front/css/front.css"/>
 
 
 
 <script type="text/javascript" src="static/front/js/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="static/front/js/jquery.cookie.js"></script>
 <link href="static/front/tree3/themes/default/style.min.css" rel="stylesheet" />
 <script src="static/front/tree3/jstree.js"></script>
 <script type="text/javascript" src="static/front/js/front.js"></script>
@@ -45,79 +47,12 @@
 <link rel="apple-touch-icon" sizes="72x72" href="http://www.stockservices.co.uk/touch-icon-ipad.png"/>
 <link rel="apple-touch-icon" sizes="114x114" href="http://www.stockservices.co.uk/touch-icon-iphone-retina.png"/>
 <link rel="apple-touch-icon" sizes="144x144" href="http://www.stockservices.co.uk/touch-icon-ipad-retina.png"/>
-<style type="text/css">
-	.clearfix:before, .clearfix:after {
-		display: table;
-		content: " ";
-		clear: both;
-	}
-	
-	.item{
-		width:100px;
-		display:block;
-		float:left;
-		margin:5px 5px;
-		padding:2px;
-		cursor: pointer;
-	}
-	.item:HOVER{
-		color: red;
-	}	
-	.active{
-		color:blue;
-	}
-	#productTable thead{
-		background-color: rgb(238, 238, 238);
-	}
-	.page{
-		padding:5px;
-		background-color: rgb(238, 238, 238);
-	}
-	.page .next:HOVER,.pre:HOVER{
-		cursor: pointer;
-		background-color: #85EFDF;
-	}
-	
-	.page .disable{
-		color: gray;
-		background-color: none;
-	}
-	.page .disable:HOVER{
-		cursor: default;
-		color: gray;
-		background-color: none;
-	}
-	#productTable{
-		margin-top:10px;
-	}
-	#productTable td{
-		font-size: 13px;
-	}
-	#productTable .odd td{
-		background-color: #f0fdfa;
-	}
-	.breadcrumb_null_1{
-		border:gray 1px solid;
-	}
-	.breadcrumb_null_2{
-		border:gray 1px solid;
-		border-top:none;
-	}
-	.breadcrumb_null_3{
-		border:gray 1px solid;
-		border-top:none;
-	}
-	.contentContainer table{
-		width: 100%;
-	}
-	.margin-padding{
-		margin:2px;
-		padding:2px;
-	}
-</style>
 </head>
 <body>
-
+	<!-- 购物车模块 -->
+	<div id="cartModule" class="cart">
+		
+	</div>
 	<div id="bodyWrapper" class="container_24">
 
 
@@ -165,37 +100,42 @@
 						target="_blank">Google+</a></li>
 					<li><a href="http://www.linkedin.com/company/stock-services"
 						target="_blank">LinkedIn</a></li>
-					<li><a href="http://eepurl.com/s8zF1" target="_blank">Mailing
-							List</a></li>
-					<li class="bloglink"><a
-						href="http://www.stockservices.co.uk/blog" target="_blank">Blog</a></li>
+					<li>
+						<a href="#" class="lang" language="en">ENGLISH</a></li>
+					<li class="bloglink">
+						<a href="#"  class="lang" language="zh">中文</a></li>
 				</ul>
 				<div style="float: left;"></div>
 			</div>
 		</div>
-
-
-		<div id="bodyContent" class="grid_18 push_6" style="font-size: 13px;">
-			<div>
-				<div class="breadcrumb_null_1" id="level4">
+		<div style="width: 100%;overflow: hidden;">
+			<!-- 查询页面 -->
+			<div style="width:100%;display: block;float: left;overflow: hidden" id="mainContent">
+				<div id="bodyContent" class="grid_18 push_6" style="font-size: 13px;">
+					<div>
+						<div class="breadcrumb_null_1" id="level4">
+						</div>
+						<div class="breadcrumb_null_2" id="level5">
+						</div>
+						<div class="breadcrumb_null_3" id="level6">
+						</div>	
+					</div>
+					<div class="contentContainer" id="container">
+					</div>
 				</div>
-				<div class="breadcrumb_null_2" id="level5">
+		
+		
+				<div id="columnLeft" class="grid_6 pull_18">
+					<div id="leftTree" style="border-right: black 1px solid;">
+					</div>
 				</div>
-				<div class="breadcrumb_null_3" id="level6">
-				</div>	
 			</div>
-			<div class="contentContainer" id="container">
+			<!-- 购物车内容 -->
+			<div style="width:0;float: left;overflow: hidden" id="cartContent">
 			</div>
+			<span class="clearfix"></span>		
 		</div>
-		<!-- bodyContent //-->
-
-
-		<div id="columnLeft" class="grid_6 pull_18">
-			<div id="leftTree" style="border-right: black 1px solid;">
-			</div>
-		</div>
-		<br/>
-		<div id="footer" class="grid_24 footer">
+		<div id="footer" class="grid_24 footer" style="width:1036px;">
 			<div class="grid_24 ui-widget infoBoxContainer">
 				<div class="ui-widget-header footernav">
 					<ul>

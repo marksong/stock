@@ -5,13 +5,20 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Random;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.jfinal.core.Controller;
 import com.jfinal.plugin.activerecord.Page;
 import com.maxfittings.stock.common.CommonUtils;
+import com.maxfittings.stock.common.CookieUtil;
+import com.maxfittings.stock.model.Cart;
+import com.maxfittings.stock.model.CartItem;
 import com.maxfittings.stock.model.Category;
 import com.maxfittings.stock.model.Product;
+import com.maxfittings.stock.model.Stock;
 
 public class FrontController extends Controller {
 
@@ -100,23 +107,6 @@ public class FrontController extends Controller {
 		}
 		renderJson(ret);
 	}
-
-/*	public void loadAll456Level() {
-		String language = CommonUtils.getLanguage(getRequest());
-		int level = getParaToInt("level");
-		List<Category> cates = Category.dao.findByHierachyNum(level);
-		List<Map<String, Object>> ret = new ArrayList<Map<String, Object>>();
-		for (Category cate : cates) {
-			Map<String, Object> map = new HashMap<String, Object>();
-			map.put("id", cate.getLong("id"));
-			map.put("text", cate.getStr("name_" + language));
-			map.put("children", level != 6);
-			// 自定义的属性
-			map.put("level", cate.getInt("hierarchy_num"));
-			ret.add(map);
-		}
-		renderJson(ret);
-	}*/
 
 	public void load456Level() {
 		String language = CommonUtils.getLanguage(getRequest());
@@ -261,6 +251,9 @@ public class FrontController extends Controller {
 		resultMap.put("level4", ret4);
 		resultMap.put("level5", ret5);
 		resultMap.put("level6", ret6);
+		resultMap.put("level4empty", level4Cate == null);
+		resultMap.put("level5empty", level5Cate == null);
+		resultMap.put("level6empty", level6Cate == null);
 		renderJson(resultMap);
 	}
 
@@ -293,4 +286,59 @@ public class FrontController extends Controller {
 		rmap.put("page", page);
 		renderJson(rmap);
 	}
+	
+	public void addItem(){
+		Cart<CartItem> cart = CookieUtil.getCart(getRequest());
+		int id = getParaToInt("id");
+		Product prd = Product.dao.findById(id);
+		cart.addItem(new CartItem(prd.getLong("id").intValue(), prd.getStr("name")));
+		CookieUtil.mergeCookie(cart, getResponse());
+		renderJson(1);
+	}
+	
+	public void removeItem(){
+		Cart<CartItem> cart = CookieUtil.getCart(getRequest());
+		int id = getParaToInt("id");
+		cart.removeItem(id);
+		CookieUtil.mergeCookie(cart, getResponse());
+		renderJson(1);
+	}
+	
+	public void clearItems(){
+		Cart<CartItem> cart = CookieUtil.getCart(getRequest());
+		cart.clear();
+		CookieUtil.mergeCookie(cart, getResponse());
+		renderJson(1);
+	}
+	public void getCart(){
+		renderJson(CookieUtil.getCookieValue(getRequest()));
+	}
+	
+	public void viewCart(){
+		String language = CommonUtils.getLanguage(getRequest());
+		List<Map<String, Object>> items = new ArrayList<Map<String, Object>>();
+		Cart<CartItem> cart = CookieUtil.getCart(getRequest());
+		for(CartItem item: cart.getAll()){
+			Product prd = Product.dao.findById(item.getId()) ;
+			Map<String, Object> map = new HashMap<String, Object>();
+			map.put("stock", Stock.dao.findByProductCode(prd.getStr("product_code")).getInt("quantity"));
+			map.put("name_"+language, prd.getStr("name_"+language));
+			map.put("id", prd.getLong("id").intValue());
+			items.add(map);
+		}
+		renderJson(items);
+	}
+	
+	public void sendMail(){
+		String json = getPara("json");
+		List<Map<String, Long>> list = new Gson().fromJson(json, new TypeToken<List<Map<String, Long>>>(){}.getType());
+		for(Map<String, Long> map : list){
+			Long id = map.get("id");
+			Long stock = map.get("stock");
+			Product prd = Product.dao.findById(id);
+			
+		}
+		renderJson(1);
+	}
+	
 }
