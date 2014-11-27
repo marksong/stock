@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib prefix="functions" uri="http://com.maxfittings.stock/functions"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fnc" uri="http://com.maxfittings.stock/functions"%>
 <%@ taglib prefix="template" tagdir="/WEB-INF/tags/template"%>
 <%@ taglib prefix="common" tagdir="/WEB-INF/tags/common"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -51,7 +52,11 @@
 <body>
 	<!-- 购物车模块 -->
 	<div id="cartModule" class="cart">
-		
+		<div id="cartTotal"></div>
+		<div class="bottom-div">
+			<button class="clear cartBtn"><fnc:message key="clear"/></button>
+			<button class="viewCart cartBtn"><fnc:message key="view_cart"/></button>
+		</div>
 	</div>
 	<div id="bodyWrapper" class="container_24">
 
@@ -108,32 +113,39 @@
 				<div style="float: left;"></div>
 			</div>
 		</div>
-		<div style="width: 100%;overflow: hidden;">
+		<div style="width: 100%">
 			<!-- 查询页面 -->
-			<div style="width:100%;display: block;float: left;overflow: hidden" id="mainContent">
+			<div style="width:100%;display: block;" id="mainContent">
 				<div id="bodyContent" class="grid_18 push_6" style="font-size: 13px;">
 					<div>
 						<div class="breadcrumb_null_1" id="level4">
 						</div>
-						<div class="breadcrumb_null_2" id="level5">
+						<div class="breadcrumb_null_1">
+							<fnc:message key="outer_diameter" />:<select id="outer_diameter"></select>
+							<fnc:message key="wall_thickness" />:<select id="wall_thickness"></select>
 						</div>
-						<div class="breadcrumb_null_3" id="level6">
-						</div>	
 					</div>
 					<div class="contentContainer" id="container">
+						<table id="productTable">
+							<thead>
+								<th width=40%><fnc:message key="name"/></th>
+								<th width=25%><fnc:message key="material"/></th>
+								<th width=10%><fnc:message key="outer_diameter"/></th>
+								<th width=15%><fnc:message key="wall_thickness"/></th>
+								<th width=10%><fnc:message key="add"/></th>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+						<div class="page">
+						</div>
 					</div>
 				</div>
-		
-		
 				<div id="columnLeft" class="grid_6 pull_18">
 					<div id="leftTree" style="border-right: black 1px solid;">
 					</div>
 				</div>
 			</div>
-			<!-- 购物车内容 -->
-			<div style="width:0;float: left;overflow: hidden" id="cartContent">
-			</div>
-			<span class="clearfix"></span>		
 		</div>
 		<div id="footer" class="grid_24 footer" style="width:1036px;">
 			<div class="grid_24 ui-widget infoBoxContainer">

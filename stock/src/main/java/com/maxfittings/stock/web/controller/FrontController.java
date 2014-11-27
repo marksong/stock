@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Random;
 
 import com.google.gson.Gson;
@@ -31,6 +30,7 @@ public class FrontController extends Controller {
 		CATEGORY_MAP.put(4, "name_fq_");
 		CATEGORY_MAP.put(5, "outer_diameter_fq_");
 		CATEGORY_MAP.put(6, "wall_thickness_fq_");
+		CATEGORY_MAP.put(7, "wall_thickness_fq_");
 	}
 
 	public void index() {
@@ -42,6 +42,10 @@ public class FrontController extends Controller {
 		map.put("children", true);
 		ret.add(map);
 		renderJsp("/front/index.jsp");
+	}
+	
+	public void cart(){
+		renderJsp("/front/cart.jsp");
 	}
 
 	// 加载子节点
@@ -197,8 +201,8 @@ public class FrontController extends Controller {
 				Category cate5 = iterator5.next();
 				String column_name5 = CATEGORY_MAP.get(cate5.getInt("hierarchy_num")) + language;
 				String sql5 = sb.toString() + "and " + column_name5 + "= '" + cate5.getStr("name_" + language) + "' ";
-				System.out.println("sql--5--:" + sql5);
-				int number5 = Product.dao.count(sql5, paras.toArray(new String[0])).intValue();
+				int number5 = Product.dao.count(sb.toString(), paras.toArray(new String[0])).intValue();
+				System.out.println("sql--5--:" + sb.toString());
 				if (number5 == 0) {
 					iterator5.remove();
 				}
@@ -212,8 +216,8 @@ public class FrontController extends Controller {
 				Category cate6 = iterator6.next();
 				String column_name6 = CATEGORY_MAP.get(cate6.getInt("hierarchy_num")) + language;
 				String sql6 = sb.toString() + "and " + column_name6 + "= '" + cate6.getStr("name_" + language) + "' ";
-				int number6 = Product.dao.count(sql6, paras.toArray(new String[0])).intValue();
-				System.out.println("sql--6--:" + sql6);
+				int number6 = Product.dao.count(sb.toString(), paras.toArray(new String[0])).intValue();
+				System.out.println("sql--6--:" + sb.toString());
 				if (number6 == 0) {
 					iterator6.remove();
 				}
@@ -225,7 +229,7 @@ public class FrontController extends Controller {
 		for (Category cate : level4Cates) {
 			Map<String, Object> map = new HashMap<String, Object>();
 			map.put("id", cate.getLong("id"));
-			map.put("text", cate.getStr("name_" + language));
+			map.put("text", cate.getStr("name_zh"));
 			// 自定义的属性
 			map.put("level", cate.getInt("hierarchy_num"));
 			ret4.add(map);
