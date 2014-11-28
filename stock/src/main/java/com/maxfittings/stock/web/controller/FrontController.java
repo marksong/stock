@@ -202,7 +202,7 @@ public class FrontController extends Controller {
 				String column_name5 = CATEGORY_MAP.get(cate5.getInt("hierarchy_num")) + language;
 				String sql5 = sb.toString() + "and " + column_name5 + "= '" + cate5.getStr("name_" + language) + "' ";
 				int number5 = Product.dao.count(sql5, paras.toArray(new String[0])).intValue();
-				System.out.println("sql--5--total-"+ number5 +"--:" + sb.toString());
+				System.out.println("sql--5--total-"+ number5 +"--:" + sql5);
 				if (number5 == 0) {
 					iterator5.remove();
 				}
@@ -217,7 +217,7 @@ public class FrontController extends Controller {
 				String column_name6 = CATEGORY_MAP.get(cate6.getInt("hierarchy_num")) + language;
 				String sql6 = sb.toString() + "and " + column_name6 + "= '" + cate6.getStr("name_" + language) + "' ";
 				int number6 = Product.dao.count(sql6, paras.toArray(new String[0])).intValue();
-				System.out.println("sql--6--total-"+ number6 +"--:" + sb.toString());
+				System.out.println("sql--6--total-"+ number6 +"--:" + sql6);
 				if (number6 == 0) {
 					iterator6.remove();
 				}
@@ -229,7 +229,7 @@ public class FrontController extends Controller {
 		for (Category cate : level4Cates) {
 			Map<String, Object> map = new HashMap<String, Object>();
 			map.put("id", cate.getLong("id"));
-			map.put("text", cate.getStr("name_zh"));
+			map.put("text", cate.getStr("name_en"));
 			// 自定义的属性
 			map.put("level", cate.getInt("hierarchy_num"));
 			ret4.add(map);

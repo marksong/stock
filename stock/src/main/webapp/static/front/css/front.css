@@ -14,7 +14,7 @@
 }
 
 .item:HOVER {
-    color: red;
+    border: red 1px solid;
 }
 
 .active {
