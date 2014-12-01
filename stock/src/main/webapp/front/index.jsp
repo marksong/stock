@@ -120,9 +120,13 @@
 					<div>
 						<div class="breadcrumb_null_1" id="level4">
 						</div>
-						<div class="breadcrumb_null_1">
-							<fnc:message key="outer_diameter" />:<select id="outer_diameter"></select>
-							<fnc:message key="wall_thickness" />:<select id="wall_thickness"></select>
+						<div class="breadcrumb_null_1 clearfix">
+							<div class="select_56" style="float: left">
+								<fnc:message key="outer_diameter" />:<select id="outer_diameter"></select>
+							</div>
+							<div class="select_56" style="float:right;">
+								<fnc:message key="wall_thickness" />:<select id="wall_thickness"></select>
+							</div>
 						</div>
 					</div>
 					<div class="contentContainer" id="container">

@@ -63,7 +63,7 @@ $(function(){
 			if(data.level4empty){
 				$('#level4').empty();
 				for(var i = 0 ; i < data.level4.length ; i++){
-					var $span = $('<img class="item" itemId="'+ data.level4[i].id +'" src="static/front/img/pro_pic/'+ data.level4[i].text +'.jpg"/>');
+					var $span = $('<img class="item" itemId="'+ data.level4[i].id +'" title="'+ data.level4[i].title +'" src="static/front/img/pro_pic/'+ data.level4[i].text +'.jpg"/>');
 					$span.on('click', function(){
 						$('#level4 .item').removeClass('active');
 						$(this).addClass('active');
@@ -150,7 +150,7 @@ $(function(){
 		}
 		$('#container tbody').empty().append(html);
 		var $pagination = $('<div class="page"></div>');
-		$('.page').empty().append(lang == 'en' ? ('<span style="width:60%;float:left;" class="margin-padding">total:'+ 
+		$('.page').empty().append(lang == 'en' ? ('<span style="width:65%;float:left;" class="margin-padding">total:'+ 
 				data.page.totalRow +' records,'+ 
 				totalPage + ' pages,every page:'+
 				data.page.pageSize +' records,current page '+ 
@@ -242,13 +242,19 @@ $(function(){
 	});	
 	$('#cartModule').animate({'left':$('#bodyWrapper').offset().left+$('#bodyWrapper').width()},1500);
 	//拷贝逻辑了
-	$.post('getCart',{},function(data){
-		cart = data;
-		if(cart){
-			$('#cartTotal').html(lang == 'en' ? ('total:'+cart.length):('总计'+cart.length+'件商品'));
-		} else {
-			cart = [];
-			$('#cartTotal').html(lang == 'en' ? 'total:0':'总计0件商品');
+	$.ajax({
+		url: 'getCart',
+		async: false,
+		type: 'post',
+		success: function(data){
+			cart = data;
+			if (cart) {
+				$('#cartTotal').html(lang == 'en' ? ('total:' + cart.length) : ('总计' + cart.length + '件商品'));
+			}
+			else {
+				cart = [];
+				$('#cartTotal').html(lang == 'en' ? 'total:0' : '总计0件商品');
+			}
 		}
 	});
 	//拷贝逻辑了

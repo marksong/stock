@@ -12,7 +12,8 @@ $(function(){
 				if(!$(this).attr('hasError')){
 					var obj = new Object();
 					obj.id = $(this).attr('forId');
-					obj.stock = $(this).val();
+					obj.stock = $(this).attr('stock');
+					obj.book = $(this).val();
 					arr.push(obj);
 				}
 			}

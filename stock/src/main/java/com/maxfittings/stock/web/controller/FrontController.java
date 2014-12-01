@@ -13,6 +13,7 @@ import com.jfinal.core.Controller;
 import com.jfinal.plugin.activerecord.Page;
 import com.maxfittings.stock.common.CommonUtils;
 import com.maxfittings.stock.common.CookieUtil;
+import com.maxfittings.stock.common.MailUtil;
 import com.maxfittings.stock.model.Cart;
 import com.maxfittings.stock.model.CartItem;
 import com.maxfittings.stock.model.Category;
@@ -230,6 +231,7 @@ public class FrontController extends Controller {
 			Map<String, Object> map = new HashMap<String, Object>();
 			map.put("id", cate.getLong("id"));
 			map.put("text", cate.getStr("name_en"));
+			map.put("title", cate.getStr("name_" + language));
 			// 自定义的属性
 			map.put("level", cate.getInt("hierarchy_num"));
 			ret4.add(map);
@@ -334,14 +336,7 @@ public class FrontController extends Controller {
 	}
 	
 	public void sendMail(){
-		String json = getPara("json");
-		List<Map<String, Long>> list = new Gson().fromJson(json, new TypeToken<List<Map<String, Long>>>(){}.getType());
-		for(Map<String, Long> map : list){
-			Long id = map.get("id");
-			Long stock = map.get("stock");
-			Product prd = Product.dao.findById(id);
-			
-		}
+		MailUtil.sendMail("题目", (List<Map<String, Long>>) new Gson().fromJson(getPara("json"), new TypeToken<List<Map<String, Long>>>(){}.getType()));
 		renderJson(1);
 	}
 	
