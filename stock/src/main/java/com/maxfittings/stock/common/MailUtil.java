@@ -17,10 +17,8 @@ import javax.mail.Authenticator;
 import javax.mail.Message;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
-import javax.mail.Transport;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeUtility;
 
@@ -33,8 +31,6 @@ public class MailUtil {
 	
 	/**
 	 * 
-	 * @param smtpFrom 发邮件的出发地（发件人的信箱）
-	 * @param smtpTo 发邮件的目的地（收件人信箱）
 	 */
 	public static boolean sendMail(String title, List<Map<String, Long>> list) {
 		try {

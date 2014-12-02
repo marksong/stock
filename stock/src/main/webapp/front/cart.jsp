@@ -115,10 +115,30 @@
 				</div>
 				<table id="cartTable" style="width:100%" class="cartTable">
 					<thead>
-						<th width="5%"><fnc:message key="select"/></th>
-						<th width="55%"><fnc:message key="name"/></th>
-						<th width="15%"><fnc:message key="stock"/></th>
-						<th width="25%"><fnc:message key="total"/></th>
+						<th width="5%">
+							<fnc:message key="select"/>
+						</th>
+						<th width="40%">
+							<fnc:message key="name"/>
+						</th>
+						<th width=20%>
+							<fnc:message key="material"/>
+						</th>
+						<th width=10%>
+							<fnc:message key="outer_diameter"/>
+						</th>
+						<th width=15%>
+							<fnc:message key="wall_thickness"/>
+						</th>						
+						<th width=5%>
+							<fnc:message key="standard"/>
+						</th>						
+						<th width="5%">
+							<fnc:message key="stock"/>
+						</th>
+						<th width="5%">
+							<fnc:message key="total"/>
+						</th>
 					</thead>
 				</table>
 				<div style="height:30px;width:100%;margin:10px 0; border-top:1px solid black">

@@ -28,6 +28,6 @@ public class Category extends Model<Category> {
 	}
 	
 	public List<Category> findByHierachyNum(Integer hierarchyNum) {
-		return find("select * from category where hierarchy_num=?", hierarchyNum);
+		return find("select c.*, p.pic_name pic from category c left join picture p on p.category_id=c.id where hierarchy_num=?", hierarchyNum);
 	}
 }

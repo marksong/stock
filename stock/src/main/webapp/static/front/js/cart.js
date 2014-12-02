@@ -18,17 +18,19 @@ $(function(){
 				}
 			}
 		});
-		$.ajax({
-			url		:	'sendMail',
-			type	:	'post',
-			data	:	{
-				json:JSON.stringify(arr)
-			},
-			dataType:	'json',
-			success	:	function(data){
-				
-			}
-		});
+		if(arr.length > 0){
+			$.ajax({
+				url		:	'sendMail',
+				type	:	'post',
+				data	:	{
+					json:JSON.stringify(arr)
+				},
+				dataType:	'json',
+				success	:	function(data){
+					
+				}
+			});
+		}
 	});
 	$('input[name=select]');
 	$('.returnBackBtn').on('click', function(){
@@ -51,10 +53,14 @@ $(function(){
 					}
 				}).appendTo($td);
 				$gloable.append($td)
-				.append('<td>'+ data[i]['name_'+lang] +'</td>')
+				.append('<td>'+ data[i].name +'</td>')
+				.append('<td>'+ data[i].material +'</td>')
+				.append('<td>'+ data[i].outer_diameter +'</td>')
+				.append('<td>'+ data[i].wall_thickness +'</td>')
+				.append('<td>'+ data[i].product_standards +'</td>')
 				.append('<td>'+ data[i].stock +'</td>');
 				var $inputTd = $('<td></td>');
-				$('<input name="total" forId="'+ data[i].id +'" stock="'+ data[i].stock +'" type="text" />').on('keyup afterpaste', function(e){
+				$('<input name="total" style="width:60px;" forId="'+ data[i].id +'" stock="'+ data[i].stock +'" type="text" />').on('keyup afterpaste', function(e){
 					$(this).val($(this).val().replace(/\D/g,''));
 					var isOdd = $(this).parents('tr').hasClass('odd');
 					$(this).removeAttr('hasError');

@@ -230,7 +230,7 @@ public class FrontController extends Controller {
 		for (Category cate : level4Cates) {
 			Map<String, Object> map = new HashMap<String, Object>();
 			map.put("id", cate.getLong("id"));
-			map.put("text", cate.getStr("name_en"));
+			map.put("text", cate.getStr("pic"));
 			map.put("title", cate.getStr("name_" + language));
 			// 自定义的属性
 			map.put("level", cate.getInt("hierarchy_num"));
@@ -328,7 +328,11 @@ public class FrontController extends Controller {
 			Product prd = Product.dao.findById(item.getId()) ;
 			Map<String, Object> map = new HashMap<String, Object>();
 			map.put("stock", Stock.dao.findByProductCode(prd.getStr("product_code")).getInt("quantity"));
-			map.put("name_"+language, prd.getStr("name_"+language));
+			map.put("name", prd.getStr("name_"+language));
+			map.put("material", prd.getStr("material_fq_"+language));
+			map.put("product_standards", prd.getStr("product_standards_fq_"+language));
+			map.put("outer_diameter", prd.getStr("outer_diameter_fq_"+language));
+			map.put("wall_thickness", prd.getStr("wall_thickness_fq_"+language));
 			map.put("id", prd.getLong("id").intValue());
 			items.add(map);
 		}
