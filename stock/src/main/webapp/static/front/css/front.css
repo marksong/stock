@@ -12,7 +12,10 @@
     padding: 2px;
     cursor: pointer;
 }
-
+.banner{
+	width: 960px;
+	height: 230px;
+}
 .item:HOVER {
     border: red 1px solid;
 }

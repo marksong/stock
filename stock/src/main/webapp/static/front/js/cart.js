@@ -4,7 +4,7 @@ var totalPage;
 var GenericIds;
 var cond = {};
 $(function(){
-	$('.sendMailBtn').on('click', function(e){
+	$('#btn_send').on('click', function(e){
 		var arr = new Array();
 		//组装选中的数据
 		$('input[name=total]').each(function(e){

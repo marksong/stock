@@ -15,23 +15,22 @@
 <title>库存</title>
 
 
-<link rel="stylesheet" type="text/css" href="static/front/css/slim-081711.css" />
-<link rel="stylesheet" type="text/css" href="static/front/css/jquery-ui-1.10.0.custom.css" />
-<link rel="stylesheet" type="text/css" href="static/front/css/jquery.fancybox-1.3.4.css"/>
-<link rel="stylesheet" type="text/css" href="static/front/css/960_24_col.css"/>
-<link rel="stylesheet" type="text/css" href="static/front/css/stylesheet.css"/>
-<link rel="stylesheet" type="text/css" media="screen" href="static/front/css/default.css"/>
-<link rel="stylesheet" type="text/css" media="screen" href="static/front/css/nivo-slider.css"/>
-<link rel="stylesheet" type="text/css" href="static/front/css/hint.css"/>
-<link rel="stylesheet" type="text/css" href="static/front/css/front.css"/>
+<link rel="stylesheet" type="text/css" href="../static/front/css/slim-081711.css" />
+<link rel="stylesheet" type="text/css" href="../static/front/css/jquery-ui-1.10.0.custom.css" />
+<link rel="stylesheet" type="text/css" href="../static/front/css/jquery.fancybox-1.3.4.css"/>
+<link rel="stylesheet" type="text/css" href="../static/front/css/960_24_col.css"/>
+<link rel="stylesheet" type="text/css" href="../static/front/css/stylesheet.css"/>
+<link rel="stylesheet" type="text/css" media="screen" href="../static/front/css/default.css"/>
+<link rel="stylesheet" type="text/css" media="screen" href="../static/front/css/nivo-slider.css"/>
+<link rel="stylesheet" type="text/css" href="../static/front/css/hint.css"/>
+<link rel="stylesheet" type="text/css" href="../static/front/css/front.css"/>
 
 
 
-<script type="text/javascript" src="static/front/js/jquery-1.10.1.min.js"></script>
-<script type="text/javascript" src="static/front/js/jquery.cookie.js"></script>
-<link href="static/front/tree3/themes/default/style.min.css" rel="stylesheet" />
-<script src="static/front/tree3/jstree.js"></script>
-<script type="text/javascript" src="static/front/js/cart.js"></script>
+<script type="text/javascript" src="../static/front/js/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="../static/front/js/jquery.cookie.js"></script>
+<link href="../static/front/tree3/themes/default/style.min.css" rel="stylesheet" />
+<script type="text/javascript" src="../static/front/js/contactus.js"></script>
 
 <link rel="shortcut icon" href="#" />
 <link rel="icon" href="#"/>
@@ -55,7 +54,7 @@
 
 		<div id="header" class="grid_24">
 			<div id="storeLogo">
-				<img src="static/front/img/ss_header_950x230.png" class="banner" alt="First Choice for Stainless Steel Fittings and Flanges" />
+				<img src="../static/front/img/ss_header_950x230.png" class="banner" alt="First Choice for Stainless Steel Fittings and Flanges" />
 			</div>
 
 			<div id="headerBackground">
@@ -76,10 +75,10 @@
 					<li class="imglink"><a
 						href="#"
 						target="_blank">
-						<img src="static/front/img/google.png" alt="Google+ Logo" title="Stock Services Google+ Profile"/></a></li>
+						<img src="../static/front/img/google.png" alt="Google+ Logo" title="Stock Services Google+ Profile"/></a></li>
 					<li class="imglink">
 						<a href="#">
-							<img src="static/front/img/linkedin.png" alt="LinkedIn Logo" title="Stock Services LinkedIn Profile"/>
+							<img src="../static/front/img/linkedin.png" alt="LinkedIn Logo" title="Stock Services LinkedIn Profile"/>
 						</a>
 					</li>
 				</ul>
@@ -90,7 +89,7 @@
 		<div class="grid_24 ui-widget infoBoxContainer">
 			<div class="ui-widget-header infoBoxHeading">
 				<ul>
-					<li><a href="front/contactus.jsp">Contact Us</a></li>
+					<li><a href="contactus.jsp">Contact Us</a></li>
 					<li><a
 						href="#"
 						target="_blank">Google+</a></li>
@@ -104,47 +103,32 @@
 				<div style="float: left;"></div>
 			</div>
 		</div>
-		<div style="width: 100%;">
-			<!-- 购物车内容 -->
-			<div style="width:100%;display: block;overflow: hidden;" id="cartContent">
-				<div style="height:30px;width:100%;margin:10px 0;border-bottom:1px solid black;">
-					<div class="title"><fnc:message key="current_cart"/>:</div>
-					<button class="returnBackBtn" type="button"><fnc:message key="back"/></button>
-					<span class="clearfix"></span>		
-				</div>
-				<table id="cartTable" style="width:100%" class="cartTable">
-					<thead>
-						<th width="5%">
-							<fnc:message key="select"/>
-						</th>
-						<th width="40%">
-							<fnc:message key="name"/>
-						</th>
-						<th width=20%>
-							<fnc:message key="material"/>
-						</th>
-						<th width=10%>
-							<fnc:message key="outer_diameter"/>
-						</th>
-						<th width=15%>
-							<fnc:message key="wall_thickness"/>
-						</th>						
-						<th width=5%>
-							<fnc:message key="standard"/>
-						</th>						
-						<th width="5%">
-							<fnc:message key="stock"/>
-						</th>
-						<th width="5%">
-							<fnc:message key="total"/>
-						</th>
-					</thead>
-				</table>
-				<div style="height:30px;width:100%;margin:10px 0; border-top:1px solid black">
-					<button class="sendMailBtn" id="btn_send" type="button"><fnc:message key="send"/></button>
-				</div>			
+		<div style="width: 100%;overflow: hidden;">
+			<div style="height:30px;width:100%;margin:10px 0;border-bottom:1px solid black;">
+				<button class="returnBackBtn" type="button"><fnc:message key="back"/></button>
+				<span class="clearfix"></span>		
 			</div>
-			<span class="clearfix"></span>		
+			<h1><fnc:message key="contact_us"/></h1>
+			<div class="grid-8">
+				<span><fnc:message key="company_name"/></span>
+				<br/>
+				<br/>
+				<span><fnc:message key="tel"/>:862138618388</span>
+				<br/>
+				<span><fnc:message key="fax"/>:862138618333</span>
+				<br/>
+				<span><fnc:message key="email"/>:sales@maxfittings.com</span>
+				<br/>
+				<span><fnc:message key="mail_address"/>:<fnc:message key="mail_addr"/></span>
+				<br/>
+				<span><fnc:message key="office_address"/>:<fnc:message key="office_addr"/></span>
+				<br/>
+				<span><fnc:message key="wechat"/>:maxfittings</span>
+				<br/>
+				<br/>
+				<img src="../static/front/img/qrcode_for_max.jpg" alt="" />
+			</div>
+			
 		</div>
 		<div id="footer" class="grid_24 footer" style="width:1036px;">
 			<div class="grid_24 ui-widget infoBoxContainer">
@@ -161,7 +145,7 @@
 							class="menu">Privacy Notice</a></li>
 						<li><a href="#"
 							class="menu">Conditions Of Use</a></li>
-						<li><a href="front/contactus.jsp" class="menu">Contact Us</a></li>
+						<li><a href="contactus.jsp" class="menu">Contact Us</a></li>
 					</ul>
 				</div>
 			</div>

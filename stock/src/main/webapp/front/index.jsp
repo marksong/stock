@@ -33,8 +33,8 @@
 <script src="static/front/tree3/jstree.js"></script>
 <script type="text/javascript" src="static/front/js/front.js"></script>
 
-<link rel="shortcut icon" href="http://www.stockservices.co.uk/images/favicon.ico/" />
-<link rel="icon" href="http://www.stockservices.co.uk/images/favicon.ico/" type="image/x-icon"/>
+<link rel="shortcut icon" href="#" />
+<link rel="icon" href="#"/>
 
 <meta name="msapplication-tooltip" content="Stock Services: First choice for Stainless Steel fittings &amp; flanges"/>
 <meta name="msapplication-navbutton-color" content="#1986C1"/>
@@ -44,10 +44,10 @@
 <meta name="msapplication-task" content="name=LinkedIn;action-uri=http://www.linkedin.com/pub/peter-comerford/37/842/885;icon-uri=http://www.linkedin.com/favicon.ico"/>
 <meta name="msapplication-task" content="name=Contact Us;action-uri=http://www.stockservices.co.uk/contact_us.php;icon-uri=http://www.stockservices.co.uk/images/email.ico"/>
 
-<link rel="apple-touch-icon" href="http://www.stockservices.co.uk/touch-icon-iphone.png"/>
-<link rel="apple-touch-icon" sizes="72x72" href="http://www.stockservices.co.uk/touch-icon-ipad.png"/>
-<link rel="apple-touch-icon" sizes="114x114" href="http://www.stockservices.co.uk/touch-icon-iphone-retina.png"/>
-<link rel="apple-touch-icon" sizes="144x144" href="http://www.stockservices.co.uk/touch-icon-ipad-retina.png"/>
+<link rel="apple-touch-icon" href="#"/>
+<link rel="apple-touch-icon" sizes="72x72" href="#"/>
+<link rel="apple-touch-icon" sizes="114x114" href="#"/>
+<link rel="apple-touch-icon" sizes="144x144" href="#"/>
 </head>
 <body>
 	<!-- 购物车模块 -->
@@ -63,7 +63,7 @@
 
 		<div id="header" class="grid_24">
 			<div id="storeLogo">
-				<img src="static/front/img/ss_header_950x230.png" alt="First Choice for Stainless Steel Fittings and Flanges" />
+				<img src="static/front/img/ss_header_950x230.png"  class="banner"  alt="First Choice for Stainless Steel Fittings and Flanges" />
 			</div>
 
 			<div id="headerBackground">
@@ -74,19 +74,19 @@
 				<ul>
 					<li>Sales Line: <a href="callto:+441213596899">+44 (0) 121
 							359 6899</a></li>
-					<li><a href="http://www.stockservices.co.uk/shopping_cart.php">Quote
+					<li><a href="#">Quote
 							Cart</a></li>
-					<li><a href="http://www.stockservices.co.uk/account.php">My
+					<li><a href="#">My
 							Account</a></li>
 
-					<li><a href="http://www.stockservices.co.uk/login.php">Log
+					<li><a href="#">Log
 							In</a></li>
 					<li class="imglink"><a
-						href="https://plus.google.com/102831278091066439226/about"
+						href="#"
 						target="_blank">
 						<img src="static/front/img/google.png" alt="Google+ Logo" title="Stock Services Google+ Profile"/></a></li>
 					<li class="imglink">
-						<a href="http://www.linkedin.com/company/stock-services" target="_blank">
+						<a href="#">
 							<img src="static/front/img/linkedin.png" alt="LinkedIn Logo" title="Stock Services LinkedIn Profile"/>
 						</a>
 					</li>
@@ -98,12 +98,11 @@
 		<div class="grid_24 ui-widget infoBoxContainer">
 			<div class="ui-widget-header infoBoxHeading">
 				<ul>
-					<li><a href="http://www.stockservices.co.uk/contact_us.php">Contact
-							Us</a></li>
+					<li><a href="front/contactus.jsp">Contact Us</a></li>
 					<li><a
-						href="https://plus.google.com/115280250792196809484/about"
+						href="#"
 						target="_blank">Google+</a></li>
-					<li><a href="http://www.linkedin.com/company/stock-services"
+					<li><a href="#"
 						target="_blank">LinkedIn</a></li>
 					<li>
 						<a href="#" class="lang" language="en">ENGLISH</a></li>
@@ -155,19 +154,18 @@
 			<div class="grid_24 ui-widget infoBoxContainer">
 				<div class="ui-widget-header footernav">
 					<ul>
-						<li><a href="http://www.stockservices.co.uk/about.php"
+						<li><a href="#"
 							class="menu">About Stock Services</a></li>
 						<li><a
-							href="http://www.stockservices.co.uk/iso_certification.php"
+							href="#"
 							class="menu">ISO Certification</a></li>
-						<li><a href="http://www.stockservices.co.uk/terms.php"
+						<li><a href="#"
 							class="menu">Terms &amp; Conditions</a></li>
-						<li><a href="http://www.stockservices.co.uk/privacy.php"
+						<li><a href="#"
 							class="menu">Privacy Notice</a></li>
-						<li><a href="http://www.stockservices.co.uk/conditions.php"
+						<li><a href="#"
 							class="menu">Conditions Of Use</a></li>
-						<li><a href="http://www.stockservices.co.uk/contact_us.php"
-							class="menu">Contact Us</a></li>
+						<li><a href="front/contactus.jsp" class="menu">Contact Us</a></li>
 					</ul>
 				</div>
 			</div>
@@ -179,9 +177,9 @@
 				Copyright © 2008-2013 South East Asian Trading Services Limited <br/>
 				Stock Services is a division of South East Asian Trading Services
 				Ltd., registered in England no. 04478701. VAT no. 831 8046 39.<br/>
-				<br/>Site design by <a href="http://kense.co.uk/"
+				<br/>Site design by <a href="#"
 					target="_blank">kense</a>, powered by <a
-					href="http://www.oscommerce.com/" target="_blank">osCommerce</a>.
+					href="#">osCommerce</a>.
 			</p>
 		</div>
 
