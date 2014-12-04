@@ -72,10 +72,6 @@
 
 					<li><a href="#">Log
 							In</a></li>
-					<li class="imglink"><a
-						href="#"
-						target="_blank">
-						<img src="../static/front/img/google.png" alt="Google+ Logo" title="Stock Services Google+ Profile"/></a></li>
 					<li class="imglink">
 						<a href="#">
 							<img src="../static/front/img/linkedin.png" alt="LinkedIn Logo" title="Stock Services LinkedIn Profile"/>
@@ -90,15 +86,13 @@
 			<div class="ui-widget-header infoBoxHeading">
 				<ul>
 					<li><a href="contactus.jsp">Contact Us</a></li>
-					<li><a
-						href="#"
-						target="_blank">Google+</a></li>
-					<li><a href="#"
-						target="_blank">LinkedIn</a></li>
+					<li><a href="#" >LinkedIn</a></li>
 					<li>
-						<a href="#" class="lang" language="en">ENGLISH</a></li>
+						<a href="#" class="lang" language="en">ENGLISH</a>
+					</li>
 					<li class="bloglink">
-						<a href="#"  class="lang" language="zh">中文</a></li>
+						<a href="#"  class="lang" language="zh">中文</a>
+					</li>
 				</ul>
 				<div style="float: left;"></div>
 			</div>
