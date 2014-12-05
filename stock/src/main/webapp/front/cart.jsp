@@ -112,6 +112,9 @@
 						<th width="40%">
 							<fnc:message key="name"/>
 						</th>
+						<th width=5%>
+							<fnc:message key="standard"/>
+						</th>						
 						<th width=20%>
 							<fnc:message key="material"/>
 						</th>
@@ -120,9 +123,6 @@
 						</th>
 						<th width=15%>
 							<fnc:message key="wall_thickness"/>
-						</th>						
-						<th width=5%>
-							<fnc:message key="standard"/>
 						</th>						
 						<th width="5%">
 							<fnc:message key="stock"/>

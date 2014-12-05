@@ -54,10 +54,10 @@ $(function(){
 				}).appendTo($td);
 				$gloable.append($td)
 				.append('<td>'+ data[i].name +'</td>')
+				.append('<td>'+ data[i].product_standards +'</td>')
 				.append('<td>'+ data[i].material +'</td>')
 				.append('<td>'+ data[i].outer_diameter +'</td>')
 				.append('<td>'+ data[i].wall_thickness +'</td>')
-				.append('<td>'+ data[i].product_standards +'</td>')
 				.append('<td>'+ data[i].stock +'</td>');
 				var $inputTd = $('<td></td>');
 				$('<input name="total" style="width:60px;" forId="'+ data[i].id +'" stock="'+ data[i].stock +'" type="text" />').on('keyup afterpaste', function(e){
