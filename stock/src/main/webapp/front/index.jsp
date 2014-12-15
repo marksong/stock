@@ -94,7 +94,6 @@
 		<div class="grid_24 ui-widget infoBoxContainer">
 			<div class="ui-widget-header infoBoxHeading">
 				<ul>
-					<li><a href="front/contactus.jsp">Contact Us</a></li>
 					<li><a href="#" >LinkedIn</a></li>
 					<li>
 						<a href="#" class="lang" language="en">ENGLISH</a>
@@ -148,8 +147,6 @@
 			<div class="grid_24 ui-widget infoBoxContainer">
 				<div class="ui-widget-header footernav">
 					<ul>
-						<li><a href="#"
-							class="menu">About Stock Services</a></li>
 						<li><a
 							href="#"
 							class="menu">ISO Certification</a></li>
@@ -167,14 +164,6 @@
 		</div>
 
 		<div class="grid_24 footer">
-			<p align="center" style="font-size: 0.7em">
-				Copyright © 2008-2013 South East Asian Trading Services Limited <br/>
-				Stock Services is a division of South East Asian Trading Services
-				Ltd., registered in England no. 04478701. VAT no. 831 8046 39.<br/>
-				<br/>Site design by <a href="#"
-					target="_blank">kense</a>, powered by <a
-					href="#">osCommerce</a>.
-			</p>
 		</div>
 
 		<div class="clear"></div>

@@ -85,7 +85,6 @@
 		<div class="grid_24 ui-widget infoBoxContainer">
 			<div class="ui-widget-header infoBoxHeading">
 				<ul>
-					<li><a href="contactus.jsp">Contact Us</a></li>
 					<li><a href="#" >LinkedIn</a></li>
 					<li>
 						<a href="#" class="lang" language="en">ENGLISH</a>
@@ -98,7 +97,7 @@
 			</div>
 		</div>
 		<div style="width: 100%;overflow: hidden;">
-			<div style="height:30px;width:100%;margin:10px 0;border-bottom:1px solid black;">
+			<div style="height:45px;width:100%;margin:10px 0;border-bottom:1px solid black;">
 				<button class="returnBackBtn" type="button"><fnc:message key="back"/></button>
 				<span class="clearfix"></span>		
 			</div>
@@ -107,9 +106,9 @@
 				<span><fnc:message key="company_name"/></span>
 				<br/>
 				<br/>
-				<span><fnc:message key="tel"/>:862138618388</span>
+				<span><fnc:message key="tel"/>:+86 2138618388</span>
 				<br/>
-				<span><fnc:message key="fax"/>:862138618333</span>
+				<span><fnc:message key="fax"/>:+86 2138618333</span>
 				<br/>
 				<span><fnc:message key="email"/>:sales@maxfittings.com</span>
 				<br/>
@@ -128,8 +127,6 @@
 			<div class="grid_24 ui-widget infoBoxContainer">
 				<div class="ui-widget-header footernav">
 					<ul>
-						<li><a href="#"
-							class="menu">About Stock Services</a></li>
 						<li><a
 							href="#"
 							class="menu">ISO Certification</a></li>
@@ -147,14 +144,6 @@
 		</div>
 
 		<div class="grid_24 footer">
-			<p align="center" style="font-size: 0.7em">
-				Copyright © 2008-2013 South East Asian Trading Services Limited <br/>
-				Stock Services is a division of South East Asian Trading Services
-				Ltd., registered in England no. 04478701. VAT no. 831 8046 39.<br/>
-				<br/>Site design by <a href="#"
-					target="_blank">kense</a>, powered by <a
-					href="#">osCommerce</a>.
-			</p>
 		</div>
 
 		<div class="clear"></div>

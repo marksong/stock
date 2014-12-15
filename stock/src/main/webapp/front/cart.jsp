@@ -86,7 +86,6 @@
 		<div class="grid_24 ui-widget infoBoxContainer">
 			<div class="ui-widget-header infoBoxHeading">
 				<ul>
-					<li><a href="front/contactus.jsp">Contact Us</a></li>
 					<li><a href="#">LinkedIn</a></li>
 					<li><a href="#" class="lang" language="en">ENGLISH</a></li>
 					<li class="bloglink">
@@ -99,7 +98,7 @@
 		<div style="width: 100%;">
 			<!-- 购物车内容 -->
 			<div style="width:100%;display: block;overflow: hidden;" id="cartContent">
-				<div style="height:30px;width:100%;margin:10px 0;border-bottom:1px solid black;">
+				<div style="height:45px;width:100%;margin:10px 0;border-bottom:1px solid black;">
 					<div class="title"><fnc:message key="current_cart"/>:</div>
 					<button class="returnBackBtn" type="button"><fnc:message key="back"/></button>
 					<span class="clearfix"></span>		
@@ -132,7 +131,7 @@
 						</th>
 					</thead>
 				</table>
-				<div style="height:30px;width:100%;margin:10px 0; border-top:1px solid black">
+				<div style="height:45px;width:100%;margin:10px 0; border-top:1px solid black">
 					<button class="sendMailBtn" id="btn_send" type="button"><fnc:message key="send"/></button>
 				</div>			
 			</div>
@@ -142,8 +141,6 @@
 			<div class="grid_24 ui-widget infoBoxContainer">
 				<div class="ui-widget-header footernav">
 					<ul>
-						<li><a href="#"
-							class="menu">About Stock Services</a></li>
 						<li><a
 							href="#"
 							class="menu">ISO Certification</a></li>
@@ -161,14 +158,6 @@
 		</div>
 
 		<div class="grid_24 footer">
-			<p align="center" style="font-size: 0.7em">
-				Copyright © 2008-2013 South East Asian Trading Services Limited <br/>
-				Stock Services is a division of South East Asian Trading Services
-				Ltd., registered in England no. 04478701. VAT no. 831 8046 39.<br/>
-				<br/>Site design by <a href="#"
-					target="_blank">kense</a>, powered by <a
-					href="#">osCommerce</a>.
-			</p>
 		</div>
 
 		<div class="clear"></div>
