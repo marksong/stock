@@ -1,4 +1,4 @@
-var pageSize = 10;
+var pageSize = 30;
 var pageNo = 1;
 var totalPage;
 var GenericIds;

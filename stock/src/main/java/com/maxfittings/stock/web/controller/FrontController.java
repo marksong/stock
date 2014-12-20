@@ -54,7 +54,6 @@ public class FrontController extends Controller {
 		String language = CommonUtils.getLanguage(getRequest());
 		// 取出所有上级条件
 		String idsStr = getPara("ids");
-		System.out.println("well----------------" + idsStr);
 		List<Integer> idsList = new ArrayList<Integer>();
 		List<Category> cates = new ArrayList<Category>();
 		int maxLevel = 0;
@@ -89,7 +88,6 @@ public class FrontController extends Controller {
 			Category cate = iterator.next();
 			String column_name = CATEGORY_MAP.get(cate.getInt("hierarchy_num")) + language;
 			String sql = sb.toString() + "and " + column_name + "= '" + cate.getStr("name_" + language) + "' ";
-			System.out.println(sql);
 			int number = Product.dao.count(sql, paras.toArray(new String[0])).intValue();
 			if (number == 0) {
 				iterator.remove();
@@ -188,7 +186,6 @@ public class FrontController extends Controller {
 				String column_name = CATEGORY_MAP.get(cate.getInt("hierarchy_num")) + language;
 				String sql = sb.toString() + "and " + column_name + "= '" + cate.getStr("name_" + language) + "' ";
 				int number = Product.dao.count(sql, paras.toArray(new String[0])).intValue();
-				System.out.println("sql--4--total-"+ number +"--:" + sql);
 				if (number == 0) {
 					iterator4.remove();
 				}
@@ -203,7 +200,6 @@ public class FrontController extends Controller {
 				String column_name5 = CATEGORY_MAP.get(cate5.getInt("hierarchy_num")) + language;
 				String sql5 = sb.toString() + "and " + column_name5 + "= '" + cate5.getStr("name_" + language) + "' ";
 				int number5 = Product.dao.count(sql5, paras.toArray(new String[0])).intValue();
-				System.out.println("sql--5--total-"+ number5 +"--:" + sql5);
 				if (number5 == 0) {
 					iterator5.remove();
 				}
@@ -218,7 +214,6 @@ public class FrontController extends Controller {
 				String column_name6 = CATEGORY_MAP.get(cate6.getInt("hierarchy_num")) + language;
 				String sql6 = sb.toString() + "and " + column_name6 + "= '" + cate6.getStr("name_" + language) + "' ";
 				int number6 = Product.dao.count(sql6, paras.toArray(new String[0])).intValue();
-				System.out.println("sql--6--total-"+ number6 +"--:" + sql6);
 				if (number6 == 0) {
 					iterator6.remove();
 				}

@@ -86,6 +86,8 @@
 		<div class="grid_24 ui-widget infoBoxContainer">
 			<div class="ui-widget-header infoBoxHeading">
 				<ul>
+					<li><a href="#" >FaceBook</a></li>
+					<li><a href="#" >Twitter</a></li>				
 					<li><a href="#">LinkedIn</a></li>
 					<li><a href="#" class="lang" language="en">ENGLISH</a></li>
 					<li class="bloglink">

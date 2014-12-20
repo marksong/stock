@@ -19,7 +19,6 @@ public class CookieUtil {
 	public static Cart<CartItem> getCart(HttpServletRequest request) {
 		String value = getCookieValue(request);
 		Gson gson = new Gson();
-		System.out.println("cookie value is -----"+value);
 		return StringUtils.isBlank(value) ? new Cart<CartItem>():new Cart<CartItem>((List<CartItem>) gson.fromJson(value,  new TypeToken<List<CartItem>>(){}.getType()));
 	}
 	

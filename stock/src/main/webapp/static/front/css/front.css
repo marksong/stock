@@ -27,6 +27,7 @@
 .page {
     padding: 5px;
     background-color: rgb(238, 238, 238);
+	overflow:hidden;
 }
 
 .page .next:HOVER, .pre:HOVER {
@@ -81,6 +82,7 @@
 .breadcrumb_null_1 {
     border: gray 1px solid;
 	padding:8px;
+	overflow:hidden;
 }
 .select_56 {
 	width:40%;
