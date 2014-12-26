@@ -145,6 +145,7 @@ $(function(){
 				'<td>'+ list[i].material +'</td>'+
 				'<td>'+ list[i].outer_diameter +'</td>'+
 				'<td>'+ list[i].wall_thickness +'</td>'+
+				'<td>'+ list[i].stock +'</td>'+
 				'<td>'+ getButton(list[i].id) +'</td>'+
 			'</tr>');
 		}
@@ -242,21 +243,18 @@ $(function(){
 	});	
 	$('#cartModule').animate({'left':$('#bodyWrapper').offset().left+$('#bodyWrapper').width()},1500);
 	//拷贝逻辑了
-	$.ajax({
-		url: 'getCart',
-		async: false,
-		type: 'post',
-		success: function(data){
-			cart = data;
-			if (cart) {
-				$('#cartTotal').html(lang == 'en' ? ('total:' + cart.length) : ('总计' + cart.length + '件商品'));
-			}
-			else {
-				cart = [];
-				$('#cartTotal').html(lang == 'en' ? 'total:0' : '总计0件商品');
-			}
-		}
-	});
+	setTimeout(function(){
+		$.post('getCart',{},function(data){
+				cart = data;
+				if (cart) {
+					$('#cartTotal').html(lang == 'en' ? ('total:' + cart.length) : ('总计' + cart.length + '件商品'));
+				}
+				else {
+					cart = [];
+					$('#cartTotal').html(lang == 'en' ? 'total:0' : '总计0件商品');
+				}
+		});
+	},1000);
 	//拷贝逻辑了
 	// 树
 	$tree.jstree({

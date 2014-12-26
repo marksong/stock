@@ -30,7 +30,7 @@
 <script type="text/javascript" src="../static/front/js/jquery-1.10.1.min.js"></script>
 <script type="text/javascript" src="../static/front/js/jquery.cookie.js"></script>
 <link href="../static/front/tree3/themes/default/style.min.css" rel="stylesheet" />
-<script type="text/javascript" src="../static/front/js/contactus.js"></script>
+<script type="text/javascript" src="../static/front/js/iso.js"></script>
 
 <link rel="shortcut icon" href="#" />
 <link rel="icon" href="#"/>
@@ -63,15 +63,11 @@
 
 			<div id="headerShortcuts">
 				<ul>
-					<li>Sales Line: <a href="callto:+441213596899">+44 (0) 121
-							359 6899</a></li>
-					<li><a href="#">Quote
-							Cart</a></li>
-					<li><a href="#">My
-							Account</a></li>
+					<li>Sales Line: <a href="callto:+441213596899">+44 (0) 121 359 6899</a></li>
+					<li><a href="#">Quote Cart</a></li>
+					<li><a href="#">My Account</a></li>
 
-					<li><a href="#">Log
-							In</a></li>
+					<li><a href="#">Log In</a></li>
 					<li class="imglink">
 						<a href="#">
 							<img src="../static/front/img/linkedin.png" alt="LinkedIn Logo" title="Stock Services LinkedIn Profile"/>
@@ -88,6 +84,7 @@
 					<li><a href="#" >FaceBook</a></li>
 					<li><a href="#" >Twitter</a></li>				
 					<li><a href="#" >LinkedIn</a></li>
+					<li><a href="#" >Certification</a></li>
 					<li>
 						<a href="#" class="lang" language="en">ENGLISH</a>
 					</li>
@@ -99,21 +96,29 @@
 			</div>
 		</div>
 		<div style="width: 100%;overflow: hidden;">
-			<img src="../static/front/img/image_${cookie.__I18N_LOCALE__.value }.jpg" alt=""  width="100%" />
+			<div style="height:45px;width:100%;margin:10px 0;border-bottom:1px solid black;">
+				<button class="returnBackBtn" type="button"><fnc:message key="back"/></button>
+				<span class="clearfix"></span>		
+			</div>
+			<div style="width:20%;float: left;">
+				<button id="isoBtn" style="float:right;" class="bookBtn"><fnc:message key="iso"/></button>
+				<span class="clearfix"></span>
+				<button id="tsBtn" style="float:right;" class="bookBtn"><fnc:message key="ts"/></button>
+				<span class="clearfix"></span>
+				<button id="pedBtn" style="float:right;" class="bookBtn"><fnc:message key="ped"/></button>
+			</div>
+			<div style="width:80%;float: left;" id="imgBox">
+				<img src="../static/front/img/iso_en.jpg" alt=""  width="100%" />
+				<img src="../static/front/img/iso_zh.jpg" alt=""  width="100%" />
+			</div>
 		</div>
 		<div id="footer" class="grid_24 footer" style="width:1036px;">
 			<div class="grid_24 ui-widget infoBoxContainer">
 				<div class="ui-widget-header footernav">
 					<ul>
-						<li><a
-							href="#"
-							class="menu">ISO Certification</a></li>
-						<li><a href="#"
-							class="menu">Terms &amp; Conditions</a></li>
-						<li><a href="#"
-							class="menu">Privacy Notice</a></li>
-						<li><a href="#"
-							class="menu">Conditions Of Use</a></li>
+						<li><a href="#" class="menu">Terms &amp; Conditions</a></li>
+						<li><a href="#" class="menu">Privacy Notice</a></li>
+						<li><a href="#" class="menu">Conditions Of Use</a></li>
 						<li><a href="contactus.jsp" class="menu">Contact Us</a></li>
 					</ul>
 				</div>

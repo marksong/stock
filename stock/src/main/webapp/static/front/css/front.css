@@ -34,7 +34,9 @@
     cursor: pointer;
     background-color: #85EFDF;
 }
-
+.bookBtn{
+	margin-bottom: 10px;
+}
 .page .disable {
     color: gray;
     background-color: none;

@@ -89,6 +89,7 @@
 					<li><a href="#" >FaceBook</a></li>
 					<li><a href="#" >Twitter</a></li>				
 					<li><a href="#">LinkedIn</a></li>
+					<li><a href="front/iso.jsp">Certification</a></li>					
 					<li><a href="#" class="lang" language="en">ENGLISH</a></li>
 					<li class="bloglink">
 						<a href="#"  class="lang" language="zh">中文</a>
@@ -143,9 +144,6 @@
 			<div class="grid_24 ui-widget infoBoxContainer">
 				<div class="ui-widget-header footernav">
 					<ul>
-						<li><a
-							href="#"
-							class="menu">ISO Certification</a></li>
 						<li><a href="#"
 							class="menu">Terms &amp; Conditions</a></li>
 						<li><a href="#"

@@ -52,6 +52,7 @@ public class ProjectJFinalConfig extends JFinalConfig {
 
 		// 配置ActiveRecord插件
 		ActiveRecordPlugin arp = new ActiveRecordPlugin(c3p0Plugin);
+		arp.setShowSql(true);
 		me.add(arp);
 		arp.addMapping("category", Category.class);
 		arp.addMapping("product", Product.class);

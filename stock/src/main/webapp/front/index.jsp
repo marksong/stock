@@ -52,7 +52,7 @@
 <body>
 	<!-- 购物车模块 -->
 	<div id="cartModule" class="cart">
-		<div id="cartTotal"></div>
+		<div id="cartTotal">${cookie.__I18N_LOCALE__.value =='en' ? 'total:0':'总计0件商品' }</div>
 		<div class="bottom-div">
 			<button class="clear cartBtn"><fnc:message key="clear"/></button>
 			<button class="viewCart cartBtn"><fnc:message key="view_cart"/></button>
@@ -97,6 +97,7 @@
 					<li><a href="#" >FaceBook</a></li>
 					<li><a href="#" >Twitter</a></li>
 					<li><a href="#" >LinkedIn</a></li>
+					<li><a href="front/iso.jsp">Certification</a></li>					
 					<li>
 						<a href="#" class="lang" language="en">ENGLISH</a>
 					</li>
@@ -127,9 +128,10 @@
 						<table id="productTable">
 							<thead>
 								<th width=40%><fnc:message key="name"/></th>
-								<th width=25%><fnc:message key="material"/></th>
+								<th width=15%><fnc:message key="material"/></th>
 								<th width=10%><fnc:message key="outer_diameter"/></th>
 								<th width=15%><fnc:message key="wall_thickness"/></th>
+								<th width="10%"><fnc:message key="stock"/></th>
 								<th width=10%><fnc:message key="add"/></th>
 							</thead>
 							<tbody>
@@ -149,9 +151,6 @@
 			<div class="grid_24 ui-widget infoBoxContainer">
 				<div class="ui-widget-header footernav">
 					<ul>
-						<li><a
-							href="front/iso.jsp"
-							class="menu">ISO Certification</a></li>
 						<li><a href="#"
 							class="menu">Terms &amp; Conditions</a></li>
 						<li><a href="#"
