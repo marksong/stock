@@ -6,6 +6,8 @@ var cond = {};
 $(function(){
 	$('#btn_send').on('click', function(e){
 		var arr = new Array();
+		var locate = '__I18N_LOCALE__';
+		var lang = $.cookie(locate);
 		//组装选中的数据
 		$('input[name=total]').each(function(e){
 			if($(this).parents('tr').find('input[name=select]').is(':checked')){
@@ -27,9 +29,16 @@ $(function(){
 				},
 				dataType:	'json',
 				success	:	function(data){
-					
+					if(data == 1){
+						alert(lang == 'en' ? 'Send success!':'邮件发送成功!');
+						window.location.href = 'http://mail.maxfittings.com/';
+					} else {
+						alert(lang == 'en' ? 'Send faild!':'邮件发送失败!');
+					}
 				}
 			});
+		} else {
+			alert(lang == 'en' ? 'Choose products for sending!':'选择要发送的产品!');
 		}
 	});
 	$('input[name=select]');
@@ -65,13 +74,17 @@ $(function(){
 					var isOdd = $(this).parents('tr').hasClass('odd');
 					$(this).removeAttr('hasError');
 					if($(this).val() == ''){
-						$(this).parent().css('background-color', isOdd ? '#f0fdfa':'white');
+						$(this).attr('hasError','1').parent().css('background-color', isOdd ? '#f0fdfa':'white');
 					} else {
 						var v = eval($(this).val());
 						var stock = eval($(this).attr('stock'));
-						$(this).parent().css('background-color', v <= stock ? (isOdd ? '#f0fdfa':'white'):'red');
+						$(this).parent().css('background-color', v > 0 && v <= stock   ? (isOdd ? '#f0fdfa':'white'):'red');
 						if(v > stock){
-							$(this).attr('hasError','1');
+							alert(lang == 'en' ? 'Over the stock of this product,please reset!':'超过库存量，请重新输入!');
+							$(this).val('').parent().css('background-color',isOdd ? '#f0fdfa':'white');							
+						} else if(v == 0){
+							alert(lang == 'en' ? 'Stock must over zero,please reset!':'库存量须大于0，请重新输入!');
+							$(this).val('').parent().css('background-color',isOdd ? '#f0fdfa':'white');							
 						}
 					}
 				}).appendTo($inputTd);

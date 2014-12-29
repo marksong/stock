@@ -16,7 +16,6 @@ import com.maxfittings.stock.model.Stock;
 import com.maxfittings.stock.web.controller.AdminIndexController;
 import com.maxfittings.stock.web.controller.CategoryController;
 import com.maxfittings.stock.web.controller.FrontController;
-import com.maxfittings.stock.web.controller.IndexController;
 import com.maxfittings.stock.web.controller.ProductController;
 import com.maxfittings.stock.web.controller.StockController;
 import com.maxfittings.stock.web.interceptor.GlobalInterceptor;
@@ -52,7 +51,6 @@ public class ProjectJFinalConfig extends JFinalConfig {
 
 		// 配置ActiveRecord插件
 		ActiveRecordPlugin arp = new ActiveRecordPlugin(c3p0Plugin);
-		arp.setShowSql(true);
 		me.add(arp);
 		arp.addMapping("category", Category.class);
 		arp.addMapping("product", Product.class);

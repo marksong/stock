@@ -87,7 +87,7 @@
 				<ul>
 					<li><a href="#" >FaceBook</a></li>
 					<li><a href="#" >Twitter</a></li>				
-					<li><a href="#" >LinkedIn</a></li>
+					<li><a href="https://www.linkedin.com/company/shanghai-max-fittings-co-ltd-?trk=nmp_rec_act_company_photo" >LinkedIn</a></li>
 					<li><a href="front/iso.jsp">Certification</a></li>					
 					<li>
 						<a href="#" class="lang" language="en">ENGLISH</a>

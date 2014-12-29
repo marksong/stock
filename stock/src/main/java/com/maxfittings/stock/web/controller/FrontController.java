@@ -272,7 +272,7 @@ public class FrontController extends Controller {
 		}
 		// 查询语句创建
 		List<String> paras = new ArrayList<String>();
-		StringBuffer sb = new StringBuffer("from product p left join stock s on p.product_code = s.product_code where 1 = 1 ");
+		StringBuffer sb = new StringBuffer("from product p inner join stock s on p.product_code = s.product_code where 1 = 1 ");
 		for (Integer id : idsList) {
 			Category c = Category.dao.findById(id);
 			String column_name = "p."+CATEGORY_MAP.get(c.getInt("hierarchy_num")) + language;
@@ -335,7 +335,7 @@ public class FrontController extends Controller {
 	}
 	
 	public void sendMail(){
-		MailUtil.sendMail("题目", (List<Map<String, Long>>) new Gson().fromJson(getPara("json"), new TypeToken<List<Map<String, Long>>>(){}.getType()));
+		MailUtil.sendMail("销售询价单", (List<Map<String, Long>>) new Gson().fromJson(getPara("json"), new TypeToken<List<Map<String, Long>>>(){}.getType()));
 		renderJson(1);
 	}
 	
