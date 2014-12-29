@@ -145,7 +145,7 @@ $(function(){
 				'<td>'+ list[i].material +'</td>'+
 				'<td>'+ list[i].outer_diameter +'</td>'+
 				'<td>'+ list[i].wall_thickness +'</td>'+
-				'<td>'+ list[i].stock +'</td>'+
+				'<td>'+ list[i].remain +'</td>'+
 				'<td>'+ getButton(list[i].id) +'</td>'+
 			'</tr>');
 		}

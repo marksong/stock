@@ -272,15 +272,15 @@ public class FrontController extends Controller {
 		}
 		// 查询语句创建
 		List<String> paras = new ArrayList<String>();
-		StringBuffer sb = new StringBuffer("from product where 1 = 1 ");
+		StringBuffer sb = new StringBuffer("from product p left join stock s on p.product_code = s.product_code where 1 = 1 ");
 		for (Integer id : idsList) {
 			Category c = Category.dao.findById(id);
-			String column_name = CATEGORY_MAP.get(c.getInt("hierarchy_num")) + language;
+			String column_name = "p."+CATEGORY_MAP.get(c.getInt("hierarchy_num")) + language;
 			String column_value = c.getStr("name_" + language);
 			sb.append("and " + column_name + "=? ");
 			paras.add(column_value);
 		}
-		sb.append("order by id asc ");
+		sb.append("order by p.id asc ");
 		Page<Product> page = Product.dao.paginate(sb.toString(), getParaToInt("pageno", 1), getParaToInt("pageSize", 5), paras.toArray(new String[0]));
 		Map<String, Object> rmap = new HashMap<String, Object>();
 		rmap.put("language", language);

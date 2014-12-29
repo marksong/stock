@@ -15,6 +15,6 @@ public class Product extends Model<Product> {
 		return Db.queryNumber(sql, paras);
 	}
 	public Page<Product> paginate(String sql, int pageNumber, int pageSize, Object... paras) {
-		return paginate(pageNumber, pageSize, "select p.*,s.quantity stock", sql, paras);
+		return paginate(pageNumber, pageSize, "select p.*,s.quantity remain", sql, paras);
 	}
 }
