@@ -61,25 +61,6 @@
 				
 			</div>
 
-			<div id="headerShortcuts">
-				<ul>
-					<li>Sales Line: <a href="callto:+441213596899">+44 (0) 121
-							359 6899</a></li>
-					<li><a href="#">Quote
-							Cart</a></li>
-					<li><a href="#">My
-							Account</a></li>
-
-					<li><a href="#">Log
-							In</a></li>
-					<li class="imglink">
-						<a href="#">
-							<img src="../static/front/img/linkedin.png" alt="LinkedIn Logo" title="Stock Services LinkedIn Profile"/>
-						</a>
-					</li>
-				</ul>
-			</div>
-
 		</div>
 
 		<div class="grid_24 ui-widget infoBoxContainer">
@@ -88,7 +69,8 @@
 					<li><a href="#" >FaceBook</a></li>
 					<li><a href="#" >Twitter</a></li>				
 					<li><a href="https://www.linkedin.com/company/shanghai-max-fittings-co-ltd-?trk=nmp_rec_act_company_photo" >LinkedIn</a></li>
-					<li><a href="front/iso.jsp">Certification</a></li>					
+					<li><a href="contactus.jsp">Contact Us</a></li>					
+					<li><a href="iso.jsp">Certification</a></li>					
 					<li>
 						<a href="#" class="lang" language="en">ENGLISH</a>
 					</li>
@@ -125,19 +107,6 @@
 				<img src="../static/front/img/qrcode_for_max.jpg" alt="" />
 			</div>
 			
-		</div>
-		<div id="footer" class="grid_24 footer" style="width:1036px;">
-			<div class="grid_24 ui-widget infoBoxContainer">
-				<div class="ui-widget-header footernav">
-					<ul>
-						<li><a href="#" class="menu">Terms &amp; Conditions</a></li>
-						<li><a href="#" class="menu">Privacy Notice</a></li>
-						<li><a href="#" class="menu">Conditions Of Use</a></li>
-						<li><a href="contactus.jsp" class="menu">Contact Us</a></li>
-					</ul>
-				</div>
-			</div>
-
 		</div>
 
 		<div class="grid_24 footer">
