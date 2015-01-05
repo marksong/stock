@@ -88,13 +88,13 @@
 				<span class="clearfix"></span>		
 			</div>
 			<div style="width:20%;float: left;">
-				<div style="width:100%">
+				<div style="width:100%;overflow: hidden">
 					<button id="isoBtn" style="float:right;" class="bookBtn"><fnc:message key="iso"/></button>
 				</div>
-				<div style="width:100%">
+				<div style="width:100%;overflow: hidden">
 					<button id="tsBtn" style="float:right;" class="bookBtn"><fnc:message key="ts"/></button>
 				</div>
-				<div style="width:100%">
+				<div style="width:100%;overflow: hidden">
 					<button id="pedBtn" style="float:right;" class="bookBtn"><fnc:message key="ped"/></button>
 				</div>
 			</div>
