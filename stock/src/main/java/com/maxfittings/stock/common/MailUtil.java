@@ -1,6 +1,5 @@
 package com.maxfittings.stock.common;
 
-import java.io.UnsupportedEncodingException;
 import java.util.List;
 import java.util.Map;
 public class MailUtil {

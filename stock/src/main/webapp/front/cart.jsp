@@ -31,6 +31,7 @@
 <script type="text/javascript" src="static/front/js/jquery.cookie.js"></script>
 <link href="static/front/tree3/themes/default/style.min.css" rel="stylesheet" />
 <script src="static/front/tree3/jstree.js"></script>
+<script src="static/front/layer/layer.min.js"></script>
 <script type="text/javascript" src="static/front/js/cart.js"></script>
 
 <link rel="shortcut icon" href="#" />
@@ -100,7 +101,7 @@
 						<th width=5%>
 							<fnc:message key="standard"/>
 						</th>						
-						<th width=20%>
+						<th width=15%>
 							<fnc:message key="material"/>
 						</th>
 						<th width=10%>
@@ -115,10 +116,13 @@
 						<th width="5%">
 							<fnc:message key="total"/>
 						</th>
+						<th width="5%">
+							<fnc:message key="delete"/>
+						</th>
 					</thead>
 				</table>
 				<div style="height:45px;width:100%;margin:10px 0; border-top:1px solid black">
-					<button class="sendMailBtn" id="btn_send" type="button"><fnc:message key="send"/></button>
+					<button class="sendMailBtn" id="prepareSend" type="button"><fnc:message key="send"/></button>
 				</div>			
 			</div>
 			<span class="clearfix"></span>		
@@ -131,7 +135,57 @@
 
 	</div>
 	<!-- bodyWrapper //-->
-
+	<div class="layerBox" style="width: 500px;min-height: 200px;display: none ;background-color: #80ffff;">
+		<table width="100%">
+			<thead>
+				<th align="right"></th>
+				<th align="left"></th>
+			</thead>
+			<tbody>
+				<tr>
+					<td align="right">
+						<fnc:message key="corpName"/>:
+					</td>
+					<td>
+						<input class="corpInfo" name="corpName" type="text" />
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						<fnc:message key="corpAddr"/>:
+					</td>
+					<td>
+						<input class="corpInfo" name="corpAddr" type="text" />
+					</td>
+				</tr>		
+				<tr>
+					<td align="right">
+						<fnc:message key="telephone"/>:
+					</td>
+					<td>
+						<input class="corpInfo" name="telephone" type="text" />
+					</td>
+				</tr>	
+				<tr>
+					<td align="right">
+						<fnc:message key="mail"/>:
+					</td>
+					<td>
+						<input class="corpInfo" name="mail" type="text" />
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						<fnc:message key="contactName"/>:
+					</td>
+					<td>
+						<input class="corpInfo" name="contactName" type="text" />
+					</td>
+				</tr>														
+			</tbody>
+		</table>
+		<button class="sendMailBtn" id="btn_send" type="button"><fnc:message key="send"/></button>
+	</div>
 
 
 
