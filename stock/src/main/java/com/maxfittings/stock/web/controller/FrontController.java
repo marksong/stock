@@ -334,8 +334,16 @@ public class FrontController extends Controller {
 		renderJson(items);
 	}
 	
+	@SuppressWarnings("unchecked")
 	public void sendMail(){
-		MailUtil.sendMail("销售询价单", (List<Map<String, Long>>) new Gson().fromJson(getPara("json"), new TypeToken<List<Map<String, Long>>>(){}.getType()));
+		MailUtil.sendMail("销售询价单", 
+						(List<Map<String, Long>>) new Gson().fromJson(getPara("json"), 
+						new TypeToken<List<Map<String, Long>>>(){}.getType()), 
+						getPara("corpName"), 
+						getPara("corpAddr"),
+						getPara("telephone"), 
+						getPara("mail"), 
+						getPara("contactName"));
 		renderJson(1);
 	}
 	
