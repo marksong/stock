@@ -48,7 +48,7 @@ public class MailUtil {
 	
 	public static String getDetailOfCorp(String corpName, String corpAddr, String telephone, String mail, String contactName){
 		StringBuilder  sb = new StringBuilder("");
-		sb.append("<table width=50% border=2 cellpadding=2> style=\"margin:0 auto\"")
+		sb.append("<table width=50% border=2 cellpadding=2 style=\"margin:0 auto\"")
 			.append("<tbody>")
 				.append("<tr>")
 					.append("<td align=\"right\" width=50%>")
